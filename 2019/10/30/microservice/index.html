@@ -4,9 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="MySQL忘记密码怎么办？, IT,程序员,技术博客">
+    <meta name="keywords" content="微服务, IT,程序员,技术博客">
     <meta name="description" content="
-mysql: [Warning] Using a password on the command line interface can be insecure.ERROR 1045 (28000): Access denied for u">
+什么是微服务？
+
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +16,7 @@ mysql: [Warning] Using a password on the command line interface can be insecure.
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>MySQL忘记密码怎么办？ | stacksg</title>
+    <title>微服务 | stacksg</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -198,13 +200,13 @@ mysql: [Warning] Using a password on the command line interface can be insecure.
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        MySQL忘记密码怎么办？
+                        微服务
                     </div>
                 </div>
             </div>
@@ -316,8 +318,12 @@ mysql: [Warning] Using a password on the command line interface can be insecure.
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/MySQL/">
-                                <span class="chip bg-color">MySQL</span>
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">
+                                <span class="chip bg-color">微服务</span>
                             </a>
                         
                     </div>
@@ -328,8 +334,8 @@ mysql: [Warning] Using a password on the command line interface can be insecure.
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/MySQL/" class="post-category">
-                                MySQL
+                            <a href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" class="post-category">
+                                微服务
                             </a>
                         
                     </div>
@@ -340,14 +346,9 @@ mysql: [Warning] Using a password on the command line interface can be insecure.
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-10-25
+                    2019-10-30
                 </div>
                 
-                
-                <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2019-10-29
-                </div>
                 
 
                 
@@ -358,35 +359,8 @@ mysql: [Warning] Using a password on the command line interface can be insecure.
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <blockquote>
-<p><code>mysql: [Warning] Using a password on the command line interface can be insecure.</code><br><br><code>ERROR 1045 (28000): Access denied for user &#39;root&#39;@&#39;localhost&#39; (using password: YES)</code></p>
-</blockquote>
-<ul>
-<li>以上信息提示拒绝用户访问数据库，出现这种问题的本质原因是用户密码输入错误！</li>
-</ul>
-<ul>
-<li><p>解决方法：</p>
-<ol>
-<li>修改my.ini文件<ul>
-<li>my.ini文件是MySQL服务实例配置文件，在mysql的安装位置的根路径下。找到文件后用记事本打开在 [mysqld] 下面添加语句：<code>skip-grant-tables``(skip-grant-tables作为启动参数的作用：MYSQL服务器不加载权限判断，任何用户都能访问数据库。)</code><br><img src="/images/mysql/conf.png" alt=""></li>
-</ul>
-</li>
-<li>通过cmd登陆mysql<ul>
-<li>win+r输入cmd</li>
-<li>输入mysql -uroot -p遇到输入密码直接回车，如果显示拒绝访问把cmd用管理员方式打开。</li>
-</ul>
-</li>
-<li>在mysql数据库user表中修改数据库密码<pre class=" language-sql"><code class="language-sql"> mysql<span class="token operator">></span><span class="token keyword">use</span> mysql  <span class="token comment" spellcheck="true">//打开数据库</span>
- mysql<span class="token operator">></span><span class="token keyword">update</span> <span class="token keyword">user</span> <span class="token keyword">set</span> password<span class="token operator">=</span>password<span class="token punctuation">(</span><span class="token string">"123"</span><span class="token punctuation">)</span> <span class="token keyword">where</span> <span class="token keyword">user</span><span class="token operator">=</span><span class="token string">"root"</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//修改root密码为123</span>
- mysql<span class="token operator">></span>flush <span class="token keyword">privileges</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//刷新数据库</span></code></pre>
-</li>
-<li>回到my.ini配置文件删除刚才添加的语句。</li>
-<li>重启mysql服务<br><br> 在cmd中输入：<pre class=" language-cmd"><code class="language-cmd"> C:\Windows\system32>net stop mysql57  //停止mysql服务
- C:\Windows\system32>net start mysql57  //启动mysql服务
- //57为mysql版本号，可根据自己mysql版本自行修改</code></pre>
-</li>
-</ol>
-</li>
+                <ul>
+<li>什么是微服务？</li>
 </ul>
 
             </div>
@@ -413,7 +387,7 @@ mysql: [Warning] Using a password on the command line interface can be insecure.
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://stacksg.club/2019/10/25/mysql/index/">http://stacksg.club/2019/10/25/mysql/index/</a>
+                    <a href="http://stacksg.club/2019/10/30/microservice/">http://stacksg.club/2019/10/30/microservice/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -451,8 +425,12 @@ mysql: [Warning] Using a password on the command line interface can be insecure.
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/MySQL/">
-                                    <span class="chip bg-color">MySQL</span>
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">
+                                    <span class="chip bg-color">微服务</span>
                                 </a>
                             
                         </div>
@@ -616,9 +594,10 @@ mysql: [Warning] Using a password on the command line interface can be insecure.
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2019/10/30/microservice/">
                     <div class="card-image">
@@ -636,9 +615,9 @@ mysql: [Warning] Using a password on the command line interface can be insecure.
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-10-30
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-10-30
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -651,6 +630,7 @@ mysql: [Warning] Using a password on the command line interface can be insecure.
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -673,31 +653,31 @@ mysql: [Warning] Using a password on the command line interface can be insecure.
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/10/23/linux/dev/">
+                <a href="/2019/10/25/mysql/index/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Linux环境安装JDK+Tomcat">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="MySQL忘记密码怎么办？">
                         
-                        <span class="card-title">Linux环境安装JDK+Tomcat</span>
+                        <span class="card-title">MySQL忘记密码怎么办？</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Linux环境安装JDK+Tomcat
+                            MySQL忘记密码怎么办？
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-10-23
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-10-25
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Linux/" class="post-category">
-                                    Linux
+                            <a href="/categories/MySQL/" class="post-category">
+                                    MySQL
                                 </a>
                             
                             
@@ -707,16 +687,8 @@ mysql: [Warning] Using a password on the command line interface can be insecure.
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Linux/">
-                        <span class="chip bg-color">Linux</span>
-                    </a>
-                    
-                    <a href="/tags/JDK/">
-                        <span class="chip bg-color">JDK</span>
-                    </a>
-                    
-                    <a href="/tags/Tomcat/">
-                        <span class="chip bg-color">Tomcat</span>
+                    <a href="/tags/MySQL/">
+                        <span class="chip bg-color">MySQL</span>
                     </a>
                     
                 </div>
