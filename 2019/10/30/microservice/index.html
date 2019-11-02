@@ -5,10 +5,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="微服务, IT,程序员,技术博客">
-    <meta name="description" content="
-什么是微服务？
-
-">
+    <meta name="description" content="什么是微服务？
+业界大牛马丁.福勒（Martin Fowler） 这样描述微服务:
+就目前而言，对于微服务业界并没有一个统一的、标准的定义。但通常而言， 微服务架构是一种架构模式或者说是一种架构风格，它提倡将单一应用程序划分成一组小的服务，">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -326,6 +325,10 @@
                                 <span class="chip bg-color">微服务</span>
                             </a>
                         
+                            <a href="/tags/Sping-Cloud/">
+                                <span class="chip bg-color">Sping Cloud</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -350,6 +353,11 @@
                 </div>
                 
                 
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2019-11-02
+                </div>
+                
 
                 
 				
@@ -359,8 +367,114 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <ul>
-<li>什么是微服务？</li>
+                <h3 id="什么是微服务？"><a href="#什么是微服务？" class="headerlink" title="什么是微服务？"></a>什么是微服务？</h3><ul>
+<li>业界大牛马丁.福勒（Martin Fowler） 这样描述微服务:<blockquote>
+<p>就目前而言，对于微服务业界并没有一个统一的、标准的定义。但通常而言， 微服务架构是一种架构模式或者说是一种架构风格，它提倡将单一应用程序划分成一组小的服务，每个服务运行在其独立的自己的进程中，服务之间互相协调、互相配合，为用户提供最终价值。服务之间采用轻量级的通信机制互相沟通（通常是基于HTTP的RESTful API）。每个服务都围绕着具体业务进行构建，并且能够被独立地部署到生产环境、类生产环境等。另外，应尽量避免统一的、集中式的服务管理机制，对具体的一个服务而言，应根据业务上下文，选择合适的语言、工具对其进行构建，可以有一个非常轻量级的集中式管理来协调这些服务，可以使用不同的语言来编写服务，也可以使用不同的数据存储。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="微服务和微服务架构"><a href="#微服务和微服务架构" class="headerlink" title="微服务和微服务架构"></a>微服务和微服务架构</h3><ul>
+<li>微服务：强调的是服务的大小，它关注的是某一个点，是具体解决某一个问题/提供落地对应服务的一个服务应用。</li>
+<li>微服务架构：是⼀种架构模式，它提倡将单⼀应⽤程序划分成⼀组⼩的服务，服务之间互相协调、互相配合，为⽤户提供最终价值。每个服务运⾏在其独⽴的进程中，服务与服务间采⽤轻量级的通信机制互相协作（通常是基于HTTP协议的RESTful API）。每个服务都围绕着具体业务进⾏构建，并且能够被独⽴的部署到⽣产环境、类⽣产环境等。另外，应当尽量避免统⼀的、集中式的服务管理机制，对具体的⼀个服务⽽⾔，应根据业务上下⽂，选择合适的语⾔、⼯具对其进⾏构建。</li>
+</ul>
+<h3 id="微服务架构技术"><a href="#微服务架构技术" class="headerlink" title="微服务架构技术"></a>微服务架构技术</h3><p>服务开发</p>
+<p>服务配置与管理</p>
+<p>服务注册与发现</p>
+<p>服务调用</p>
+<p>服务熔断器</p>
+<p>负载均衡</p>
+<p>服务接口调用(客户端调用服务的简化工具)</p>
+<p>消息队列</p>
+<p>服务配置中心管理</p>
+<p>服务路由（API网关）</p>
+<p>服务监控</p>
+<p>全链路追踪</p>
+<p>服务部署</p>
+<p>数据流操作开发包</p>
+<p>事件消息总线</p>
+<h3 id="Spring-Cloud"><a href="#Spring-Cloud" class="headerlink" title="Spring Cloud"></a>Spring Cloud</h3><blockquote>
+<p>协调任何事情：简化分布式系统<br>构建分布式系统并不需要复杂且容易出错。Spring Cloud为最常见的分布式系统模式提供了一种简单易用的编程模型，可帮助开发人员构建弹性，可靠且协调的应用程序。Spring Cloud建立在Spring Boot的基础上，使开发人员可以轻松上手并快速提高生产力。</p>
+</blockquote>
+<p><img src="/images/microservice/1.png" alt=""></p>
+<p>Spring Cloud是微服务架构的一站式解决方案，是微服务架构技术的集合体。</p>
+<h3 id="Sping-Boot和Sping-cloud的关系"><a href="#Sping-Boot和Sping-cloud的关系" class="headerlink" title="Sping Boot和Sping cloud的关系"></a>Sping Boot和Sping cloud的关系</h3><p>SpringBoot专注于快速方便的开发单个个体微服务。</p>
+<p>SpringCloud是关注全局的微服务协调整理治理框架，它将SpringBoot开发的一个个单体微服务整合并管理起来，</p>
+<p>为各个微服务之间提供，配置管理、服务发现、断路器、路由、微代理、事件总线、全局锁、决策竞选、分布式会话等等集成服务</p>
+<p>SpringBoot可以离开SpringCloud独立使用开发项目，但是SpringCloud离不开SpringBoot，属于依赖的关系.</p>
+<p>SpringBoot专注于快速、方便的开发单个微服务个体，SpringCloud关注全局的服务治理框架。</p>
+<h3 id="Spring-Cloud所包含项目"><a href="#Spring-Cloud所包含项目" class="headerlink" title="Spring Cloud所包含项目"></a>Spring Cloud所包含项目</h3><ul>
+<li><p>Spring Cloud Config</p>
+<p>  由git存储库支持的集中式外部配置管理。配置资源直接映射到Spring，Environment但如果需要，可以由非Spring应用程序使用。</p>
+</li>
+<li><p>Spring Cloud Netflix</p>
+<p>  集成各种Netflix的OSS部件(Eureka, Hystrix, Zuul, Archaius, 等)。</p>
+</li>
+<li><p>Spring Cloud Bus</p>
+<p>  事件总线，用于将服务和服务实例与分布式消息传递链接在一起。有用的跨集群传播状态的改变（如改变配置的事件）。</p>
+</li>
+<li><p>Spring Cloud Cloudfoundry</p>
+<p>  将您的应用程序与Pivotal Cloud Foundry集成。提供服务发现实现，还可以轻松实现受SSO和OAuth2保护的资源。</p>
+</li>
+<li><p>Spring Cloud Open Service Broker</p>
+<p>  为构建实现Open Service Broker API的服务代理提供起点。</p>
+</li>
+<li><p>Spring Cloud Cluster</p>
+<p>  领导者选举和常见状态模式，以及Zookeeper，Redis，Hazelcast和Consul的抽象和实现。</p>
+</li>
+<li><p>Spring Cloud Consul</p>
+<p>  使用Hashicorp Consul进行服务发现和配置管理。</p>
+</li>
+<li><p>Spring Cloud Security</p>
+<p>  为Zuul代理中的负载平衡的OAuth2其余客户端和身份验证标头中继提供支持。</p>
+</li>
+<li><p>Spring Cloud Sleuth</p>
+<p>  Spring Cloud应用程序的分布式跟踪，与Zipkin，HTrace和基于日志的（例如ELK）跟踪兼容。</p>
+</li>
+<li><p>Spring Cloud Data Flow</p>
+<p>  面向现代运行时可组合微服务应用程序的云原生编排服务。易于使用的DSL，拖放式GUI和REST-API共同简化了基于微服务的数据管道的总体编排。</p>
+</li>
+<li><p>Spring Cloud Stream</p>
+<p>  轻量级的事件驱动型微服务框架，用于快速构建可以连接到外部系统的应用程序。在Spring Boot应用程序之间使用Apache Kafka或RabbitMQ发送和接收消息的简单声明性模型。</p>
+</li>
+<li><p>Spring Cloud Stream App Starters</p>
+<p>  Spring Cloud Stream App Starters是基于Spring Boot的Spring Integration应用程序，可与外部系统集成。</p>
+</li>
+<li><p>Spring Cloud Task</p>
+<p>  一个短暂的微服务框架，可快速构建执行有限数量数据处理的应用程序。用于向Spring Boot应用程序添加功能和非功能功能的简单声明。</p>
+</li>
+<li><p>Spring Cloud Task应用入门</p>
+<p>  Spring Cloud Task App Starters是Spring Boot应用程序，可以是任何进程，包括不会永远运行的Spring Batch作业，它们在有限的数据处理周期后结束/停止。</p>
+</li>
+<li><p>春季云动物园管理员</p>
+<p>  使用Apache Zookeeper进行服务发现和配置管理。</p>
+</li>
+<li><p>Spring Cloud AWS</p>
+<p>  与托管的Amazon Web Services轻松集成。它提供了一种方便的方式，可以使用众所周知的Spring习语和API（例如消息传递或缓存API）与AWS提供的服务进行交互。开发人员可以围绕托管服务构建应用程序，而无需关心基础结构或维护。</p>
+</li>
+<li><p>Spring Cloud连接器</p>
+<p>  使各种平台上的PaaS应用程序轻松连接到后端服务，例如数据库和消息代理（该项目以前称为“ Spring Cloud”）。</p>
+</li>
+<li><p>Spring Cloud Starters</p>
+<p>  Spring Boot风格的启动程序项目可简化Spring Cloud使用者的依赖关系管理。（作为一个项目停产，并在Angel.SR2之后与其他项目合并。）</p>
+</li>
+<li><p>Spring Cloud CLI</p>
+<p>  Spring Boot CLI插件，用于在Groovy中快速创建Spring Cloud组件应用程序</p>
+</li>
+<li><p>春云合约</p>
+<p>  Spring Cloud Contract是一个总括项目解决方案，可帮助用户成功实施“消费者驱动合同”方法。</p>
+</li>
+<li><p>Spring Cloud Gateway</p>
+<p>  Spring Cloud Gateway是基于Project Reactor的智能可编程路由器。</p>
+</li>
+<li><p>Spring Cloud OpenFeign</p>
+<p>  Spring Cloud OpenFeign通过自动配置并绑定到Spring Environment和其他Spring编程模型惯用法为Spring Boot应用程序提供集成。</p>
+</li>
+<li><p>春季云管道</p>
+<p>  Spring Cloud Pipelines提供了一个可靠的部署管道，其中包含一些步骤，以确保您的应用程序可以零停机时间进行部署，并且可以轻松回滚某些错误。</p>
+</li>
+<li><p>弹簧云功能</p>
+<p>  Spring Cloud Function通过功能促进业务逻辑的实现。它支持跨无服务器提供程序的统一编程模型，并支持独立运行（本地或在PaaS中）的功能。</p>
+</li>
 </ul>
 
             </div>
@@ -431,6 +545,10 @@
                             
                                 <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">
                                     <span class="chip bg-color">微服务</span>
+                                </a>
+                            
+                                <a href="/tags/Sping-Cloud/">
+                                    <span class="chip bg-color">Sping Cloud</span>
                                 </a>
                             
                         </div>
@@ -640,6 +758,10 @@
                     
                     <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">
                         <span class="chip bg-color">微服务</span>
+                    </a>
+                    
+                    <a href="/tags/Sping-Cloud/">
+                        <span class="chip bg-color">Sping Cloud</span>
                     </a>
                     
                 </div>
