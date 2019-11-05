@@ -346,7 +346,7 @@ mysql: [Warning] Using a password on the command line interface can be insecure.
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2019-10-29
+                    2019-11-05
                 </div>
                 
 
@@ -367,23 +367,33 @@ mysql: [Warning] Using a password on the command line interface can be insecure.
 <ul>
 <li><p>解决方法：</p>
 <ol>
-<li>修改my.ini文件<ul>
-<li>my.ini文件是MySQL服务实例配置文件，在mysql的安装位置的根路径下。找到文件后用记事本打开在 [mysqld] 下面添加语句：<code>skip-grant-tables``(skip-grant-tables作为启动参数的作用：MYSQL服务器不加载权限判断，任何用户都能访问数据库。)</code><br><img src="/images/mysql/conf.png" alt=""></li>
+<li><p>修改my.ini文件</p>
+<ul>
+<li><p>my.ini文件是MySQL服务实例配置文件，一般在默认路径下。<br><img src="/images/mysql/mypath.png" alt=""></p>
+</li>
+<li><p>如果在这里找不到my.ini文件，一般是文件被隐藏了，打开文件夹的查看菜单，勾选中”显示隐藏的项目”。<br><img src="/images/mysql/xianshi.png" alt=""></p>
+</li>
+<li><p>找到文件后用记事本打开，找到 [mysqld] 项，在下面添加语句：<code>skip-grant-tables</code>  (skip-grant-tables作为启动参数的作用：MYSQL服务器不加载权限判断，任何用户都能访问数据库。)<br><img src="/images/mysql/conf.png" alt=""></p>
+</li>
+<li><p>修改文件保存后，重启mysql服务。</p>
+<pre class=" language-cmd"><code class="language-cmd">>net stop mysql57  //停止mysql服务
+>net start mysql57  //启动mysql服务
+//57为mysql版本号，可根据自己mysql版本自行修改</code></pre>
+<p><img src="/images/mysql/restart.png" alt=""></p>
+</li>
 </ul>
 </li>
-<li>通过cmd登陆mysql<ul>
-<li>win+r输入cmd</li>
-<li>输入mysql -uroot -p遇到输入密码直接回车，如果显示拒绝访问把cmd用管理员方式打开。</li>
+<li><p>通过cmd登陆mysql,输入mysql -uroot -p遇到输入密码直接回车，如果显示拒绝访问把cmd用管理员方式打开。<br> <img src="/images/mysql/login.png" alt=""></p>
+<ul>
+<li>在mysql数据库user表中修改数据库密码。<pre class=" language-sql"><code class="language-sql">mysql<span class="token operator">></span><span class="token keyword">use</span> mysql  <span class="token comment" spellcheck="true">//打开数据库</span>
+mysql<span class="token operator">></span><span class="token keyword">update</span> <span class="token keyword">user</span> <span class="token keyword">set</span> authentication_string <span class="token operator">=</span> password <span class="token punctuation">(</span> <span class="token string">'123'</span> <span class="token punctuation">)</span> <span class="token keyword">where</span> <span class="token keyword">user</span> <span class="token operator">=</span> <span class="token string">'root'</span> <span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//修改root密码为123</span>
+mysql<span class="token operator">></span>flush <span class="token keyword">privileges</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//刷新数据库</span></code></pre>
+<img src="/images/mysql/pwd.png" alt=""></li>
 </ul>
 </li>
-<li>在mysql数据库user表中修改数据库密码<pre class=" language-sql"><code class="language-sql"> mysql<span class="token operator">></span><span class="token keyword">use</span> mysql  <span class="token comment" spellcheck="true">//打开数据库</span>
- mysql<span class="token operator">></span><span class="token keyword">update</span> <span class="token keyword">user</span> <span class="token keyword">set</span> password<span class="token operator">=</span>password<span class="token punctuation">(</span><span class="token string">"123"</span><span class="token punctuation">)</span> <span class="token keyword">where</span> <span class="token keyword">user</span><span class="token operator">=</span><span class="token string">"root"</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//修改root密码为123</span>
- mysql<span class="token operator">></span>flush <span class="token keyword">privileges</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//刷新数据库</span></code></pre>
+<li><p>回到my.ini配置文件删除刚才添加的语句。</p>
 </li>
-<li>回到my.ini配置文件删除刚才添加的语句。</li>
-<li>重启mysql服务<br><br> 在cmd中输入：<pre class=" language-cmd"><code class="language-cmd"> C:\Windows\system32>net stop mysql57  //停止mysql服务
- C:\Windows\system32>net start mysql57  //启动mysql服务
- //57为mysql版本号，可根据自己mysql版本自行修改</code></pre>
+<li><p>按照上面方式重启mysql服务，使用新密码登陆。</p>
 </li>
 </ol>
 </li>
