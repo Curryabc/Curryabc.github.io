@@ -4,12 +4,15 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="绑定域名到GitHub Pages, IT,程序员,技术博客">
-    <meta name="description" content="
-基于GitHub Pages搭建的网站域名格式为xxx.github.io，如果不喜欢这个域名可以去阿里云申请注册一个自己喜欢的域名，然后将购买的域名映射到xxx.github.io。
+    <meta name="keywords" content="计算机网络, IT,程序员,技术博客">
+    <meta name="description" content="知识点
+计算机网络主要指的就是TCP/IP协议栈，是互联网的基石。
+容易忘是因为TCP/IP技术栈有一大部分都隐藏于操作系统的内核态，较少被接触。
+重点脉络：（1，反复记忆。2，多问为什么）
 
 
-在自己GitHub Pages仓库的根目录下新建">
+TCP/IP协议体系的认知
+分层。一部分处于">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +20,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>绑定域名到GitHub Pages | stacksg</title>
+    <title>计算机网络 | stacksg</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -201,13 +204,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        绑定域名到GitHub Pages
+                        计算机网络
                     </div>
                 </div>
             </div>
@@ -319,8 +322,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/GitHub-Pages/">
-                                <span class="chip bg-color">GitHub Pages</span>
+                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                                <span class="chip bg-color">计算机网络</span>
                             </a>
                         
                     </div>
@@ -331,8 +334,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/GitHub-Pages/" class="post-category">
-                                GitHub Pages
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="post-category">
+                                计算机网络
                             </a>
                         
                     </div>
@@ -343,7 +346,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-11-04
+                    2019-11-07
                 </div>
                 
                 
@@ -356,29 +359,49 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <blockquote>
-<p>基于GitHub Pages搭建的网站域名格式为xxx.github.io，如果不喜欢这个域名可以去阿里云申请注册一个自己喜欢的域名，然后将购买的域名映射到xxx.github.io。</p>
-</blockquote>
+                <h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><ul>
+<li>计算机网络主要指的就是TCP/IP协议栈，是互联网的基石。</li>
+<li>容易忘是因为TCP/IP技术栈有一大部分都隐藏于操作系统的内核态，较少被接触。</li>
+<li>重点脉络：（1，反复记忆。2，多问为什么）</li>
+</ul>
 <ol>
-<li>在自己GitHub Pages仓库的根目录下新建”CNAME”文件，文件内容为自己申请的域名，注意CNAME文件没有后缀。</li>
-</ol>
-<p><img src="/images/createsite/cname.png" alt=""></p>
-<blockquote>
-<p>Github读取CNAME文件之后，Github服务器会设置stacksg.club为主域名，然后将stacksg.github.io重定向到stacksg.club。</p>
-</blockquote>
-<ol start="2">
-<li><p>登陆阿里云设置域名解析</p>
-<ol>
-<li><p>打开命令行ping自己GitHub Pages主页的域名，得到IP地址。<br><img src="/images/createsite/ip.png" alt=""></p>
-</li>
-<li><p>在阿里云域名解析设置控制台中配置域名解析，注意记录类型选择A，记录值为上一步ping到的IP地址。</p>
-<p><img src="/images/createsite/dns.png" alt=""></p>
-</li>
-<li><p>等待数分钟后自己的域名就可以被访问了。</p>
-</li>
+<li>TCP/IP协议体系的认知<ol>
+<li>分层。一部分处于用户态，一部分处于内核态。数据链路层，网络层，传输层封装于操作系统内核态。应用层存在于操作系统的用户空间，包括DNS，FTP，HTTPs，HTTP，工作中接触较多的是应用层的部分。但其它层的原理必须理解，面试考察。</li>
+<li>层与层之间下层对上层是透明的，传输在每一层是对等的。</li>
 </ol>
 </li>
+<li>数据链路层。<ol>
+<li>以太网帧的格式。</li>
+<li>MTU（最大传输单元）的概念。</li>
+<li>ARP协议和RARP协议（地址协议和逆地址协议，网卡MAC地址和IP地址互查机制）（网络层和链路层的中间层）ARP报文格式，查询原理，缓存机制</li>
 </ol>
+</li>
+<li>网络层<ol>
+<li>掌握IP首部格式：如16位分片标识、DF不分片标志、MF更多分片标志、13位片偏移、8位生存时间TTL、16位的首部检验和等等。</li>
+<li>掌握如何IP分片：如总长大于MTU值，画分片情况；如何避免IP分片（在应用层或传输层做限制）；确定分片顺序；确定分片是否全部到达。</li>
+<li>掌握IP选路。会看路由表。Route print 。路由表每个字段的含义</li>
+<li>掌握ICMP（因特网控制报文协议）：（理解为网络层和传输层的中间协议）报文格式；2种查询报文+5种差错报文。</li>
+</ol>
+</li>
+<li>传输层<ol>
+<li>掌握UDP协议：无连接，不可靠的特点；首部各个字段</li>
+<li>掌握TCP协议（面试集中考察）：面向连接，可靠；首部各字段（序号，确认号，首部长度，窗口大小，校验和等特别的，完成可靠功能的部分）；TCP连接控制机制（三次握手，四次挥手，同时打开，同时关闭，半关闭）；TCP流量控制机制（滑动窗口、慢启动、拥塞避免、快速重传、快速恢复的算法原理）；TCP超时重传机制（四个定时器）；一些问题（为什么三次握手四次挥手？为什么TCP和UDP都存在尾包头？）</li>
+</ol>
+</li>
+<li>应用层<ol>
+<li>掌握DNS（域名解析）协议：名字空间；DNS指针查询（反向查找或逆向解析）基本原理、DNS缓存</li>
+<li>FTP协议（活化石）：控制连接和数据连接（为什么需要这两种连接）；两种工作模式（PASV+PORT）；各种FTP指令和响应码；FTP断点续传，匿名FTP</li>
+<li>HTTP协议：报文格式（请求报文、响应报文、请求头各种字段、响应头各种字段）；HTTP状态码。</li>
+<li>HTTPS协议：详细握手过程；各种算法（摘要算法、数字签名、数字证书的原理与过程）</li>
+</ol>
+</li>
+</ol>
+<h3 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h3><ul>
+<li>链接：<a href="https://pan.baidu.com/s/14bVaPu1b03aJoT4lFL41Lw" target="_blank" rel="noopener">https://pan.baidu.com/s/14bVaPu1b03aJoT4lFL41Lw</a><br>提取码：wfbs </li>
+</ul>
+<h3 id="转自"><a href="#转自" class="headerlink" title="转自"></a>转自</h3><ul>
+<li><a href="https://www.bilibili.com/video/av54705489" target="_blank" rel="noopener">https://www.bilibili.com/video/av54705489</a></li>
+</ul>
 
             </div>
             <hr/>
@@ -405,7 +428,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://stacksg.club/2019/11/04/createsite/dnsmapping/">http://stacksg.club/2019/11/04/createsite/dnsmapping/</a>
+                    <a href="http://stacksg.club/2019/11/07/computernetwork/ComputerNetWork/">http://stacksg.club/2019/11/07/computernetwork/ComputerNetWork/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -443,8 +466,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/GitHub-Pages/">
-                                    <span class="chip bg-color">GitHub Pages</span>
+                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                                    <span class="chip bg-color">计算机网络</span>
                                 </a>
                             
                         </div>
@@ -482,9 +505,60 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2019/11/07/computernetwork/ComputerNetWork/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="计算机网络">
+                        
+                        <span class="card-title">计算机网络</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            计算机网络重点知识
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-07
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="post-category">
+                                    计算机网络
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">计算机网络</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2019/11/06/algorithm/HashTable/">
                     <div class="card-image">
@@ -502,9 +576,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-06
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-06
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -526,59 +600,6 @@
                     
                     <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/">
                         <span class="chip bg-color">哈希表</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/11/04/algorithm/sort/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="排序算法">
-                        
-                        <span class="card-title">排序算法</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            常见的排序算法
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-04
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%8E%92%E5%BA%8F/">
-                        <span class="chip bg-color">排序</span>
                     </a>
                     
                 </div>
