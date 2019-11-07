@@ -4,12 +4,14 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="绑定域名到GitHub Pages, IT,程序员,技术博客">
-    <meta name="description" content="
-基于GitHub Pages搭建的网站域名格式为xxx.github.io，如果不喜欢这个域名可以去阿里云申请注册一个自己喜欢的域名，然后将购买的域名映射到xxx.github.io。
+    <meta name="keywords" content="哈希表, IT,程序员,技术博客">
+    <meta name="description" content="查找
+顺序表查找：挨个比较
+有序表查找：二分法查找
+散列表查找
 
-
-在自己GitHub Pages仓库的根目录下新建">
+散列表
+散列表（Hash table，也叫哈希表），是根据关键码值(Key value)而直接进行访问的数据结构。也就是说，它通过把关键码值映射到表中一个位置来访问记录，以加">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +19,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>绑定域名到GitHub Pages | stacksg</title>
+    <title>哈希表 | stacksg</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -201,13 +203,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        绑定域名到GitHub Pages
+                        哈希表
                     </div>
                 </div>
             </div>
@@ -319,8 +321,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/GitHub-Pages/">
-                                <span class="chip bg-color">GitHub Pages</span>
+                            <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">算法</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/">
+                                <span class="chip bg-color">哈希表</span>
                             </a>
                         
                     </div>
@@ -331,8 +337,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/GitHub-Pages/" class="post-category">
-                                GitHub Pages
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                算法
                             </a>
                         
                     </div>
@@ -343,9 +349,14 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-11-04
+                    2019-11-06
                 </div>
                 
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2019-11-07
+                </div>
                 
 
                 
@@ -356,29 +367,36 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <blockquote>
-<p>基于GitHub Pages搭建的网站域名格式为xxx.github.io，如果不喜欢这个域名可以去阿里云申请注册一个自己喜欢的域名，然后将购买的域名映射到xxx.github.io。</p>
-</blockquote>
-<ol>
-<li>在自己GitHub Pages仓库的根目录下新建”CNAME”文件，文件内容为自己申请的域名，注意CNAME文件没有后缀。</li>
-</ol>
-<p><img src="/images/createsite/cname.png" alt=""></p>
-<blockquote>
-<p>Github读取CNAME文件之后，Github服务器会设置stacksg.club为主域名，然后将stacksg.github.io重定向到stacksg.club。</p>
-</blockquote>
-<ol start="2">
-<li><p>登陆阿里云设置域名解析</p>
-<ol>
-<li><p>打开命令行ping自己GitHub Pages主页的域名，得到IP地址。<br><img src="/images/createsite/ip.png" alt=""></p>
+                <h3 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h3><ul>
+<li>顺序表查找：挨个比较</li>
+<li>有序表查找：二分法查找</li>
+<li>散列表查找</li>
+</ul>
+<h3 id="散列表"><a href="#散列表" class="headerlink" title="散列表"></a>散列表</h3><ul>
+<li>散列表（Hash table，也叫哈希表），是根据关键码值(Key value)而直接进行访问的数据结构。也就是说，它通过把关键码值映射到表中一个位置来访问记录，以加快查找的速度。这个映射函数叫做散列函数，存放记录的数组叫做散列表。<br><img src="/images/algorithm/hash.png" alt=""></li>
+</ul>
+<h3 id="散列表的两个关键点"><a href="#散列表的两个关键点" class="headerlink" title="散列表的两个关键点"></a>散列表的两个关键点</h3><ul>
+<li>散列函数的构造方法</li>
+<li>处理散列冲突的方法</li>
+</ul>
+<h3 id="散列函数的构造"><a href="#散列函数的构造" class="headerlink" title="散列函数的构造"></a>散列函数的构造</h3><ul>
+<li>构造散列函数的两个基本原则：<ul>
+<li>计算简单</li>
+<li>分布均匀</li>
+</ul>
 </li>
-<li><p>在阿里云域名解析设置控制台中配置域名解析，注意记录类型选择A，记录值为上一步ping到的IP地址。</p>
-<p><img src="/images/createsite/dns.png" alt=""></p>
+<li>根据不同情况采用不同的散列函数：<ul>
+<li>计算散列地址所需要的时间</li>
+<li>关键字的长度</li>
+<li>散列表的大小</li>
+<li>关键字的分布情况</li>
+<li>记录查找的频率</li>
+</ul>
 </li>
-<li><p>等待数分钟后自己的域名就可以被访问了。</p>
-</li>
-</ol>
-</li>
-</ol>
+</ul>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="https://www.jianshu.com/p/7495fad83877" target="_blank" rel="noopener">https://www.jianshu.com/p/7495fad83877</a></li>
+</ul>
 
             </div>
             <hr/>
@@ -404,7 +422,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://stacksg.club/2019/11/04/createsite/dnsmapping/">http://stacksg.club/2019/11/04/createsite/dnsmapping/</a>
+                    <a href="http://stacksg.club/2019/11/06/algorithm/HashTable/">http://stacksg.club/2019/11/06/algorithm/HashTable/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -442,8 +460,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/GitHub-Pages/">
-                                    <span class="chip bg-color">GitHub Pages</span>
+                                <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">算法</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/">
+                                    <span class="chip bg-color">哈希表</span>
                                 </a>
                             
                         </div>
@@ -481,9 +503,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2019/11/06/algorithm/HashTable/">
                     <div class="card-image">
@@ -501,9 +524,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-06
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-06
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -516,6 +539,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -538,19 +562,19 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/11/04/algorithm/sort/">
+                <a href="/2019/11/04/createsite/dnsmapping/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="排序算法">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="绑定域名到GitHub Pages">
                         
-                        <span class="card-title">排序算法</span>
+                        <span class="card-title">绑定域名到GitHub Pages</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            常见的排序算法
+                            将自己购买的域名绑定到GitHub Pages
                         
                     </div>
                     <div class="publish-info">
@@ -561,8 +585,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
+                            <a href="/categories/GitHub-Pages/" class="post-category">
+                                    GitHub Pages
                                 </a>
                             
                             
@@ -572,12 +596,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%8E%92%E5%BA%8F/">
-                        <span class="chip bg-color">排序</span>
+                    <a href="/tags/GitHub-Pages/">
+                        <span class="chip bg-color">GitHub Pages</span>
                     </a>
                     
                 </div>
