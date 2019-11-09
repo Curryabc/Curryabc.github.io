@@ -355,12 +355,17 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2019-11-07
+                    2019-11-09
                 </div>
                 
 
                 
 				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
 				
             </div>
         </div>
@@ -394,6 +399,128 @@
 </ul>
 </li>
 </ul>
+<h3 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h3><pre class=" language-C"><code class="language-C">#include <stdio.h>
+#include <stdlib.h>
+
+#define HASHSIZE 12        //定义散列表空间大小 
+#define NULLKEY -32768    //散列表元素初始值 
+
+typedef struct 
+{
+    int *elem;    //散列表空间基址 
+    int count;    //散列表总长度 
+} HashTable;
+
+//散列表初始化 
+int InitHashTable(HashTable *hash)
+{
+    hash->elem = (int *)malloc(sizeof(int) * HASHSIZE);
+    if (!hash->elem)
+    {
+        return -1;    //申请空间失败，返回错误代码 
+    }
+
+    for (int i = 0; i < HASHSIZE; i++)
+    {
+        hash->elem[i] = NULLKEY;
+    } 
+
+    hash->count = HASHSIZE;
+
+    return 0; 
+} 
+
+//除留余数法 
+int Hash(int key)
+{
+    return key % (HASHSIZE - 1);    //余数大小一般<=散列表长度且为质数 
+} 
+
+//散列表插入 
+int InsertHash(HashTable *hash, int key)
+{
+    int addr = Hash(key);
+
+    while (hash->elem[addr] != NULLKEY)        
+    {
+        addr = (addr + 1) % (HASHSIZE - 1);    //冲突解决使用线性探测法 
+        if (addr == Hash(key))                // 偏移地址重新回到起始地址证明散列表已满 
+        {
+            return -1;
+        }
+    }
+
+    hash->elem[addr] = key;
+
+    return 0;
+}
+
+//散列表查找 
+int SearchHash(HashTable *hash, int key, int *addr)
+{
+    *addr = Hash(key);
+
+    while (hash->elem[*addr] != key)    //如果偏移地址定位的元素不等于key值则采用线性探测法继续查找 
+    {
+        *addr = (*addr + 1) % (HASHSIZE - 1);
+        if (hash->elem[*addr] == NULLKEY || *addr == Hash(key))     //查找到初始值的情况或回到首次hash的位置都为查找失败的情况 
+        {
+            return -1;
+        }
+    }
+
+    return 0;
+}
+
+void PrintHash(HashTable *hash)
+{
+    for (int i = 0; i < hash->count; i++)
+    {
+        if (hash->elem[i] != NULLKEY)
+        {
+            printf("HashTable[%d] = %d\n", i, hash->elem[i]);
+        }
+        else
+        {
+            printf("HashTable[%d] = NULL\n", i);
+        }
+    }
+}
+
+int main()
+{
+    HashTable *hash = (HashTable *)malloc(sizeof(HashTable));
+
+    if (InitHashTable(hash))
+    {
+        return -1;
+    }
+
+    int keys[] = { 5, 11, 10, 18, 11, 6, };
+    int key = 10;
+
+    for(int i = 0; i < 6; i++)
+    {
+        if (InsertHash(hash, keys[i]))
+        {
+            printf("散列表已满\n");
+            break;
+        }
+    }
+
+    PrintHash(hash);
+
+    int addr;
+    int result = SearchHash(hash, key, &addr);
+
+    if (result)
+    {
+        printf("散列表中不存在key值:%d\n", key);
+        return -1;
+    }
+
+    printf("查找到的key=%d\n", hash->elem[addr]);
+}</code></pre>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
 <li><a href="https://www.jianshu.com/p/7495fad83877" target="_blank" rel="noopener">https://www.jianshu.com/p/7495fad83877</a></li>
 </ul>
@@ -740,12 +867,69 @@
             
             
             
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
             <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    window.setTimeout("siteTime()", 1000);
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2019";
+                    var startMonth = "10";
+                    var startDate = "5";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
             
             <br>
             
         </div>
-        <div class="col s12 m4 l4 social-link ">
+        <div class="col s12 m4 l4 social-link social-statis">
     <a href="https://github.com/stacksg" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
@@ -835,6 +1019,8 @@ $(function () {
 </script>
 
     
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
     
 
     
