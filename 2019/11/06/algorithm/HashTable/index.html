@@ -355,7 +355,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2019-11-09
+                    2019-11-10
                 </div>
                 
 
@@ -399,128 +399,128 @@
 </ul>
 </li>
 </ul>
-<h3 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h3><pre class=" language-C"><code class="language-C">#include <stdio.h>
-#include <stdlib.h>
+<h3 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h3><pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h></span></span>
 
-#define HASHSIZE 12        //定义散列表空间大小 
-#define NULLKEY -32768    //散列表元素初始值 
+<span class="token macro property">#<span class="token directive keyword">define</span> HASHSIZE 12        </span><span class="token comment" spellcheck="true">//定义散列表空间大小 </span>
+<span class="token macro property">#<span class="token directive keyword">define</span> NULLKEY -32768    </span><span class="token comment" spellcheck="true">//散列表元素初始值 </span>
 
-typedef struct 
-{
-    int *elem;    //散列表空间基址 
-    int count;    //散列表总长度 
-} HashTable;
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span> 
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> <span class="token operator">*</span>elem<span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//散列表空间基址 </span>
+    <span class="token keyword">int</span> count<span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//散列表总长度 </span>
+<span class="token punctuation">}</span> HashTable<span class="token punctuation">;</span>
 
-//散列表初始化 
-int InitHashTable(HashTable *hash)
-{
-    hash->elem = (int *)malloc(sizeof(int) * HASHSIZE);
-    if (!hash->elem)
-    {
-        return -1;    //申请空间失败，返回错误代码 
-    }
+<span class="token comment" spellcheck="true">//散列表初始化 </span>
+<span class="token keyword">int</span> <span class="token function">InitHashTable</span><span class="token punctuation">(</span>HashTable <span class="token operator">*</span>hash<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    hash<span class="token operator">-></span>elem <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span> <span class="token operator">*</span> HASHSIZE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>hash<span class="token operator">-></span>elem<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//申请空间失败，返回错误代码 </span>
+    <span class="token punctuation">}</span>
 
-    for (int i = 0; i < HASHSIZE; i++)
-    {
-        hash->elem[i] = NULLKEY;
-    } 
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> HASHSIZE<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        hash<span class="token operator">-></span>elem<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> NULLKEY<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> 
 
-    hash->count = HASHSIZE;
+    hash<span class="token operator">-></span>count <span class="token operator">=</span> HASHSIZE<span class="token punctuation">;</span>
 
-    return 0; 
-} 
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span> 
 
-//除留余数法 
-int Hash(int key)
-{
-    return key % (HASHSIZE - 1);    //余数大小一般<=散列表长度且为质数 
-} 
+<span class="token comment" spellcheck="true">//除留余数法 </span>
+<span class="token keyword">int</span> <span class="token function">Hash</span><span class="token punctuation">(</span><span class="token keyword">int</span> key<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> key <span class="token operator">%</span> <span class="token punctuation">(</span>HASHSIZE <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//余数大小一般&lt;=散列表长度且为质数 </span>
+<span class="token punctuation">}</span> 
 
-//散列表插入 
-int InsertHash(HashTable *hash, int key)
-{
-    int addr = Hash(key);
+<span class="token comment" spellcheck="true">//散列表插入 </span>
+<span class="token keyword">int</span> <span class="token function">InsertHash</span><span class="token punctuation">(</span>HashTable <span class="token operator">*</span>hash<span class="token punctuation">,</span> <span class="token keyword">int</span> key<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> addr <span class="token operator">=</span> <span class="token function">Hash</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    while (hash->elem[addr] != NULLKEY)        
-    {
-        addr = (addr + 1) % (HASHSIZE - 1);    //冲突解决使用线性探测法 
-        if (addr == Hash(key))                // 偏移地址重新回到起始地址证明散列表已满 
-        {
-            return -1;
-        }
-    }
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>hash<span class="token operator">-></span>elem<span class="token punctuation">[</span>addr<span class="token punctuation">]</span> <span class="token operator">!=</span> NULLKEY<span class="token punctuation">)</span>        
+    <span class="token punctuation">{</span>
+        addr <span class="token operator">=</span> <span class="token punctuation">(</span>addr <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token punctuation">(</span>HASHSIZE <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//冲突解决使用线性探测法 </span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>addr <span class="token operator">==</span> <span class="token function">Hash</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">)</span>                <span class="token comment" spellcheck="true">// 偏移地址重新回到起始地址证明散列表已满 </span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
 
-    hash->elem[addr] = key;
+    hash<span class="token operator">-></span>elem<span class="token punctuation">[</span>addr<span class="token punctuation">]</span> <span class="token operator">=</span> key<span class="token punctuation">;</span>
 
-    return 0;
-}
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-//散列表查找 
-int SearchHash(HashTable *hash, int key, int *addr)
-{
-    *addr = Hash(key);
+<span class="token comment" spellcheck="true">//散列表查找 </span>
+<span class="token keyword">int</span> <span class="token function">SearchHash</span><span class="token punctuation">(</span>HashTable <span class="token operator">*</span>hash<span class="token punctuation">,</span> <span class="token keyword">int</span> key<span class="token punctuation">,</span> <span class="token keyword">int</span> <span class="token operator">*</span>addr<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token operator">*</span>addr <span class="token operator">=</span> <span class="token function">Hash</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    while (hash->elem[*addr] != key)    //如果偏移地址定位的元素不等于key值则采用线性探测法继续查找 
-    {
-        *addr = (*addr + 1) % (HASHSIZE - 1);
-        if (hash->elem[*addr] == NULLKEY || *addr == Hash(key))     //查找到初始值的情况或回到首次hash的位置都为查找失败的情况 
-        {
-            return -1;
-        }
-    }
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>hash<span class="token operator">-></span>elem<span class="token punctuation">[</span><span class="token operator">*</span>addr<span class="token punctuation">]</span> <span class="token operator">!=</span> key<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">//如果偏移地址定位的元素不等于key值则采用线性探测法继续查找 </span>
+    <span class="token punctuation">{</span>
+        <span class="token operator">*</span>addr <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">*</span>addr <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token punctuation">(</span>HASHSIZE <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>hash<span class="token operator">-></span>elem<span class="token punctuation">[</span><span class="token operator">*</span>addr<span class="token punctuation">]</span> <span class="token operator">==</span> NULLKEY <span class="token operator">||</span> <span class="token operator">*</span>addr <span class="token operator">==</span> <span class="token function">Hash</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">)</span>     <span class="token comment" spellcheck="true">//查找到初始值的情况或回到首次hash的位置都为查找失败的情况 </span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
 
-    return 0;
-}
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-void PrintHash(HashTable *hash)
-{
-    for (int i = 0; i < hash->count; i++)
-    {
-        if (hash->elem[i] != NULLKEY)
-        {
-            printf("HashTable[%d] = %d\n", i, hash->elem[i]);
-        }
-        else
-        {
-            printf("HashTable[%d] = NULL\n", i);
-        }
-    }
-}
+<span class="token keyword">void</span> <span class="token function">PrintHash</span><span class="token punctuation">(</span>HashTable <span class="token operator">*</span>hash<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> hash<span class="token operator">-></span>count<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>hash<span class="token operator">-></span>elem<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">!=</span> NULLKEY<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"HashTable[%d] = %d\n"</span><span class="token punctuation">,</span> i<span class="token punctuation">,</span> hash<span class="token operator">-></span>elem<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">else</span>
+        <span class="token punctuation">{</span>
+            <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"HashTable[%d] = NULL\n"</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-int main()
-{
-    HashTable *hash = (HashTable *)malloc(sizeof(HashTable));
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    HashTable <span class="token operator">*</span>hash <span class="token operator">=</span> <span class="token punctuation">(</span>HashTable <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>HashTable<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    if (InitHashTable(hash))
-    {
-        return -1;
-    }
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">InitHashTable</span><span class="token punctuation">(</span>hash<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    int keys[] = { 5, 11, 10, 18, 11, 6, };
-    int key = 10;
+    <span class="token keyword">int</span> keys<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> key <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
 
-    for(int i = 0; i < 6; i++)
-    {
-        if (InsertHash(hash, keys[i]))
-        {
-            printf("散列表已满\n");
-            break;
-        }
-    }
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">6</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">InsertHash</span><span class="token punctuation">(</span>hash<span class="token punctuation">,</span> keys<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"散列表已满\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
 
-    PrintHash(hash);
+    <span class="token function">PrintHash</span><span class="token punctuation">(</span>hash<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    int addr;
-    int result = SearchHash(hash, key, &addr);
+    <span class="token keyword">int</span> addr<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> result <span class="token operator">=</span> <span class="token function">SearchHash</span><span class="token punctuation">(</span>hash<span class="token punctuation">,</span> key<span class="token punctuation">,</span> <span class="token operator">&amp;</span>addr<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    if (result)
-    {
-        printf("散列表中不存在key值:%d\n", key);
-        return -1;
-    }
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>result<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"散列表中不存在key值:%d\n"</span><span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    printf("查找到的key=%d\n", hash->elem[addr]);
-}</code></pre>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"查找到的key=%d\n"</span><span class="token punctuation">,</span> hash<span class="token operator">-></span>elem<span class="token punctuation">[</span>addr<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
 <li><a href="https://www.jianshu.com/p/7495fad83877" target="_blank" rel="noopener">https://www.jianshu.com/p/7495fad83877</a></li>
 </ul>
