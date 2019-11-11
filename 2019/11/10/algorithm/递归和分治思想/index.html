@@ -201,7 +201,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/algorithm/fxt.jfif')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -355,6 +355,11 @@
                 </div>
                 
                 
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2019-11-11
+                </div>
+                
 
                 
 				
@@ -371,7 +376,7 @@
             <div id="articleContent">
                 <h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>一种直接或间接调用自身的函数称为递归函数，使用递归可以解决每次面临同一问题，由较简单到最简单的情况，需要注意的是递归的边界条件，也就是终止条件。</p>
 <h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><ol>
-<li><p>斐波那契数列</p>
+<li><p>斐波那契数列<br><img src="/images/algorithm/fib.png" alt=""></p>
 <ul>
 <li><p>指的是这样一个数列：1、1、2、3、5、8、13、21、34、……在数学上，斐波那契数列以如下被以递推的方法定义：F(1)=1，F(2)=1, F(n)=F(n-1)+F(n-2)（n&gt;=3，n∈N*）</p>
 </li>
@@ -484,7 +489,8 @@
 <span class="token punctuation">}</span></code></pre>
 </li>
 </ul>
-<h4 id="汉诺塔"><a href="#汉诺塔" class="headerlink" title="汉诺塔"></a>汉诺塔</h4><ul>
+<h4 id="汉诺塔"><a href="#汉诺塔" class="headerlink" title="汉诺塔"></a>汉诺塔</h4><p><img src="/images/algorithm/Hanoi.jfif" alt=""></p>
+<ul>
 <li><p>汉诺塔：汉诺塔（又称河内塔）问题是源于印度一个古老传说的益智玩具。大梵天创造世界的时候做了三根金刚石柱子，在一根柱子上从下往上按照大小顺序摞着64片黄金圆盘。大梵天命令婆罗门把圆盘从下面开始按大小顺序重新摆放在另一根柱子上。并且规定，在小圆盘上不能放大圆盘，在三根柱子之间一次只能移动一个圆盘。</p>
 </li>
 <li><p>递归实现<br><img src="/images/algorithm/hnt1.png" alt=""></p>
@@ -518,7 +524,8 @@
   <span class="token punctuation">}</span> </code></pre>
 </li>
 </ul>
-<h4 id="八皇后问题"><a href="#八皇后问题" class="headerlink" title="八皇后问题"></a>八皇后问题</h4><ul>
+<h4 id="八皇后问题"><a href="#八皇后问题" class="headerlink" title="八皇后问题"></a>八皇后问题</h4><p><img src="/images/algorithm/eq.jfif" alt=""></p>
+<ul>
 <li><p>八皇后问题，是一个古老而著名的问题，是回溯算法的典型案例。该问题是国际西洋棋棋手马克斯·贝瑟尔于1848年提出：在8×8格的国际象棋上摆放八个皇后，使其不能互相攻击，即任意两个皇后都不能处于同一行、同一列或同一斜线上，问有多少种摆法。 高斯认为有76种方案。1854年在柏林的象棋杂志上不同的作者发表了40种不同的解，后来有人用图论的方法解出92种结果。计算机发明后，有多种计算机语言可以解决此问题。</p>
 </li>
 <li><p>递归实现</p>
@@ -617,7 +624,7 @@
       <span class="token punctuation">{</span>
           <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
           <span class="token punctuation">{</span>
-              <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">IsSafe</span><span class="token punctuation">(</span>row<span class="token punctuation">,</span> i<span class="token punctuation">,</span> chess<span class="token punctuation">)</span><span class="token punctuation">)</span>
+              <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">IsSafe</span><span class="token punctuation">(</span>row<span class="token punctuation">,</span> i<span class="token punctuation">,</span> chess2<span class="token punctuation">)</span><span class="token punctuation">)</span>
               <span class="token punctuation">{</span>
                   <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> <span class="token number">8</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span>
                   <span class="token punctuation">{</span>
@@ -749,56 +756,45 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/11/10/algorithm/%E9%80%92%E5%BD%92%E5%92%8C%E5%88%86%E6%B2%BB%E6%80%9D%E6%83%B3/">
+                <a href="/2019/11/11/docker/Kubernetes/">
                     <div class="card-image">
                         
+                        <img src="/images/Docker/k8s.jfif" class="responsive-img" alt="Kubernetes">
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="递归和分治思想">
-                        
-                        <span class="card-title">递归和分治思想</span>
+                        <span class="card-title">Kubernetes</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            递归和分治思想的简单介绍
+                            Kubernetes学习笔记
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-10
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-11
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
+                            <a href="/categories/Docker/" class="post-category">
+                                    Docker
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
-                    </a>
-                    
-                    <a href="/tags/%E9%80%92%E5%BD%92/">
-                        <span class="chip bg-color">递归</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%88%86%E6%B2%BB/">
-                        <span class="chip bg-color">分治</span>
+                    <a href="/tags/Kubernetes/">
+                        <span class="chip bg-color">Kubernetes</span>
                     </a>
                     
                 </div>
