@@ -4,16 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="微服务, IT,程序员,技术博客">
-    <meta name="description" content="互联网架构衍变
-单体架构
-服务器集群 Nginx
-负载均衡服务器集群 Lvs+Keepalived
-CDN+Vanish服务器集群
-数据库读写分离
-NOSQL+分布式搜索引擎
-NOSQL+分库分表+Mycat
-分布式文件系统 MogileF">
+    <meta name="keywords" content="不可征服, IT,程序员,技术博客">
+    <meta name="description" content="《不可征服》透过覆盖我的夜色，我看见黑暗层层叠叠。感谢上帝赐予我，不可征服的灵魂。就算被地狱紧紧拽住，我也从未退避哀求，遭受命运的重重打击，我满头鲜血，却头颅昂起。在愤怒和悲伤的尘世外，耸立的不只是恐怖的影子，但面对未来的威胁，你会发现，我">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -21,7 +13,7 @@ NOSQL+分库分表+Mycat
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>微服务 | stacksg</title>
+    <title>不可征服 | stacksg</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -205,13 +197,13 @@ NOSQL+分库分表+Mycat
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        微服务
+                        不可征服
                     </div>
                 </div>
             </div>
@@ -323,16 +315,8 @@ NOSQL+分库分表+Mycat
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Java/">
-                                <span class="chip bg-color">Java</span>
-                            </a>
-                        
-                            <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">
-                                <span class="chip bg-color">微服务</span>
-                            </a>
-                        
-                            <a href="/tags/Sping-Cloud/">
-                                <span class="chip bg-color">Sping Cloud</span>
+                            <a href="/tags/%E4%B8%8D%E5%8F%AF%E5%BE%81%E6%9C%8D/">
+                                <span class="chip bg-color">不可征服</span>
                             </a>
                         
                     </div>
@@ -343,8 +327,8 @@ NOSQL+分库分表+Mycat
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" class="post-category">
-                                微服务
+                            <a href="/categories/%E4%B8%8D%E5%8F%AF%E5%BE%81%E6%9C%8D/" class="post-category">
+                                不可征服
                             </a>
                         
                     </div>
@@ -355,13 +339,13 @@ NOSQL+分库分表+Mycat
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-10-30
+                    2019-11-30
                 </div>
                 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2019-11-26
+                    2019-12-31
                 </div>
                 
 
@@ -378,178 +362,7 @@ NOSQL+分库分表+Mycat
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="互联网架构衍变"><a href="#互联网架构衍变" class="headerlink" title="互联网架构衍变"></a>互联网架构衍变</h3><ol>
-<li>单体架构</li>
-<li>服务器集群 Nginx</li>
-<li>负载均衡服务器集群 Lvs+Keepalived</li>
-<li>CDN+Vanish服务器集群</li>
-<li>数据库读写分离</li>
-<li>NOSQL+分布式搜索引擎</li>
-<li>NOSQL+分库分表+Mycat</li>
-<li>分布式文件系统 MogileFS FastDFS</li>
-<li>应用服务化拆分+消息中间件</li>
-<li>微服务架构</li>
-</ol>
-<h3 id="单体架构（Monolithic）"><a href="#单体架构（Monolithic）" class="headerlink" title="单体架构（Monolithic）"></a>单体架构（Monolithic）</h3><p>十年前左右，我去公司面试时，面试官问我的第一个问题是让我简要介绍下软件设计中的三层设计模型（表示层、业务逻辑处理层、数据访问层）：</p>
-<ul>
-<li>表示层：通常理解为用于和用户交互的视图层；</li>
-<li>业务逻辑处理层：用户提交请求，经过业务逻辑层处理后，对用户请求作出响应；</li>
-<li>数据库访问层：主要用于操作数据库。</li>
-</ul>
-<p>尽管在软件设计过程中，架构师或者程序设计者遵守了流行一时的经典的三层模型，但由于并未按照业务场景进行划分，使得最终的系统应用将所有的业务场景的表示层、业务逻辑处理层、数据访问层放在一个 Project 中，然后经过编译、打包并部署到一台服务器上。</p>
-<p>这种架构适用于用户业务不复杂、访问量较小的时候，甚至可以将应用服务、数据库、文件服务器部署在一台服务器上。但随着用户业务场景变得越来越复杂，单体架构的局限性就很快暴露出来了，主要体现在如下几方面：</p>
-<ul>
-<li>随着用户访问量增加，单体应用的并发能力有限；</li>
-<li>随着业务越来越复杂，单体应用代码量急剧膨胀，最终导致代码可 读性、可维护行和可扩展性得不到保证；</li>
-<li>随着系统代码量的剧增，当修改应用程序或者新增需求时，测试难度成指数级增长；</li>
-<li>部署效率低下；</li>
-<li>技术选型单一。</li>
-</ul>
-<h3 id="SOA-架构（Service-Oriented-Architecture）"><a href="#SOA-架构（Service-Oriented-Architecture）" class="headerlink" title="SOA 架构（Service Oriented Architecture）"></a>SOA 架构（Service Oriented Architecture）</h3><p>SOA 是一种粗粒度、松耦合服务架构，服务之间通过简单、精确定义接口进行通讯，不涉及底层编程接口和通讯模型。SOA 可以看作是 B/S 模型、XML（标准通用标记语言的子集）/Web Service 技术之后的自然延伸。</p>
-<p>其主要优点有：</p>
-<ul>
-<li><p>把模块（即服务）拆分，使用接口通信，降低模块之间的耦合度；</p>
-</li>
-<li><p>把项目拆分成若干个子项目，不同的团队负责不同的子项目；</p>
-</li>
-<li><p>增加功能时只需要再增加一个子项目，调用其它系统的接口就可以；</p>
-</li>
-<li><p>可以灵活的进行分布式部署。<br>主要缺点：</p>
-</li>
-<li><p>和单体架构相比，增加了系统复杂度，系统整体性能有较大影响;</p>
-</li>
-<li><p>多服务数据通信协议之间转换过程复杂，容易造成 ESB（Enterprise Service Bus）性能瓶颈。</p>
-</li>
-</ul>
-<h3 id="微服务架构（MicroServices）"><a href="#微服务架构（MicroServices）" class="headerlink" title="微服务架构（MicroServices）"></a>微服务架构（MicroServices）</h3><p>微服务的概念是 Martin Flower 在2014年写的一篇论文《MicroServices》中提出来的，其主要特点是：</p>
-<ul>
-<li>每个服务按照业务划分；</li>
-<li>服务之间通过轻量级 API 调用；</li>
-<li>可以使用不同语言开发；</li>
-<li>可以使用不同的数据存储技术；</li>
-<li>可独立部署，服务之间互相不影响；</li>
-<li>可针对用户访问流量大的服务单独扩展，从而能够节约资源；</li>
-<li>管理自动化。</li>
-</ul>
-<p>主要挑战：</p>
-<ul>
-<li>微服务粒度大小难以划分，需要设计人员对业务有很好的掌握；</li>
-<li>分布式复杂性，主要体现在分布式事务、网络延迟、系统容错等问题解决难度较大；</li>
-<li>微服务之间通信成本较高，对微服务之间网络稳定性、通信速度要求较高；</li>
-<li>由于微服务数量较大，运维人员运维、部署有较大的挑战。</li>
-</ul>
-<h3 id="什么是微服务"><a href="#什么是微服务" class="headerlink" title="什么是微服务"></a>什么是微服务</h3><ul>
-<li>业界大牛马丁.福勒（Martin Fowler） 这样描述微服务:<blockquote>
-<p>就目前而言，对于微服务业界并没有一个统一的、标准的定义。但通常而言， 微服务架构是一种架构模式或者说是一种架构风格，它提倡将单一应用程序划分成一组小的服务，每个服务运行在其独立的自己的进程中，服务之间互相协调、互相配合，为用户提供最终价值。服务之间采用轻量级的通信机制互相沟通（通常是基于HTTP的RESTful API）。每个服务都围绕着具体业务进行构建，并且能够被独立地部署到生产环境、类生产环境等。另外，应尽量避免统一的、集中式的服务管理机制，对具体的一个服务而言，应根据业务上下文，选择合适的语言、工具对其进行构建，可以有一个非常轻量级的集中式管理来协调这些服务，可以使用不同的语言来编写服务，也可以使用不同的数据存储。</p>
-</blockquote>
-</li>
-</ul>
-<h3 id="微服务和微服务架构"><a href="#微服务和微服务架构" class="headerlink" title="微服务和微服务架构"></a>微服务和微服务架构</h3><ul>
-<li>微服务：强调的是服务的大小，它关注的是某一个点，是具体解决某一个问题/提供落地对应服务的一个服务应用。</li>
-<li>微服务架构：是⼀种架构模式，它提倡将单⼀应⽤程序划分成⼀组⼩的服务，服务之间互相协调、互相配合，为⽤户提供最终价值。每个服务运⾏在其独⽴的进程中，服务与服务间采⽤轻量级的通信机制互相协作（通常是基于HTTP协议的RESTful API）。每个服务都围绕着具体业务进⾏构建，并且能够被独⽴的部署到⽣产环境、类⽣产环境等。另外，应当尽量避免统⼀的、集中式的服务管理机制，对具体的⼀个服务⽽⾔，应根据业务上下⽂，选择合适的语⾔、⼯具对其进⾏构建。</li>
-</ul>
-<h3 id="微服务架构技术"><a href="#微服务架构技术" class="headerlink" title="微服务架构技术"></a>微服务架构技术</h3><p>服务开发</p>
-<p>服务配置与管理</p>
-<p>服务注册与发现</p>
-<p>服务调用</p>
-<p>服务熔断器</p>
-<p>负载均衡</p>
-<p>服务接口调用(客户端调用服务的简化工具)</p>
-<p>消息队列</p>
-<p>服务配置中心管理</p>
-<p>服务路由（API网关）</p>
-<p>服务监控</p>
-<p>全链路追踪</p>
-<p>服务部署</p>
-<p>数据流操作开发包</p>
-<p>事件消息总线</p>
-<h3 id="Spring-Cloud"><a href="#Spring-Cloud" class="headerlink" title="Spring Cloud"></a>Spring Cloud</h3><blockquote>
-<p>协调任何事情：简化分布式系统<br>构建分布式系统并不需要复杂且容易出错。Spring Cloud为最常见的分布式系统模式提供了一种简单易用的编程模型，可帮助开发人员构建弹性，可靠且协调的应用程序。Spring Cloud建立在Spring Boot的基础上，使开发人员可以轻松上手并快速提高生产力。</p>
-</blockquote>
-<p><img src="/images/microservice/1.png" alt=""></p>
-<p>Spring Cloud是微服务架构的一站式解决方案，是微服务架构技术的集合体。</p>
-<h3 id="Sping-Boot和Sping-cloud的关系"><a href="#Sping-Boot和Sping-cloud的关系" class="headerlink" title="Sping Boot和Sping cloud的关系"></a>Sping Boot和Sping cloud的关系</h3><p>SpringBoot专注于快速方便的开发单个个体微服务。</p>
-<p>SpringCloud是关注全局的微服务协调整理治理框架，它将SpringBoot开发的一个个单体微服务整合并管理起来，</p>
-<p>为各个微服务之间提供，配置管理、服务发现、断路器、路由、微代理、事件总线、全局锁、决策竞选、分布式会话等等集成服务</p>
-<p>SpringBoot可以离开SpringCloud独立使用开发项目，但是SpringCloud离不开SpringBoot，属于依赖的关系.</p>
-<p>SpringBoot专注于快速、方便的开发单个微服务个体，SpringCloud关注全局的服务治理框架。</p>
-<h3 id="Spring-Cloud所包含项目"><a href="#Spring-Cloud所包含项目" class="headerlink" title="Spring Cloud所包含项目"></a>Spring Cloud所包含项目</h3><ul>
-<li><p>Spring Cloud Config</p>
-<p>  由git存储库支持的集中式外部配置管理。配置资源直接映射到Spring，Environment但如果需要，可以由非Spring应用程序使用。</p>
-</li>
-<li><p>Spring Cloud Netflix</p>
-<p>  集成各种Netflix的OSS部件(Eureka, Hystrix, Zuul, Archaius, 等)。</p>
-</li>
-<li><p>Spring Cloud Bus</p>
-<p>  事件总线，用于将服务和服务实例与分布式消息传递链接在一起。有用的跨集群传播状态的改变（如改变配置的事件）。</p>
-</li>
-<li><p>Spring Cloud Cloudfoundry</p>
-<p>  将您的应用程序与Pivotal Cloud Foundry集成。提供服务发现实现，还可以轻松实现受SSO和OAuth2保护的资源。</p>
-</li>
-<li><p>Spring Cloud Open Service Broker</p>
-<p>  为构建实现Open Service Broker API的服务代理提供起点。</p>
-</li>
-<li><p>Spring Cloud Cluster</p>
-<p>  领导者选举和常见状态模式，以及Zookeeper，Redis，Hazelcast和Consul的抽象和实现。</p>
-</li>
-<li><p>Spring Cloud Consul</p>
-<p>  使用Hashicorp Consul进行服务发现和配置管理。</p>
-</li>
-<li><p>Spring Cloud Security</p>
-<p>  为Zuul代理中的负载平衡的OAuth2其余客户端和身份验证标头中继提供支持。</p>
-</li>
-<li><p>Spring Cloud Sleuth</p>
-<p>  Spring Cloud应用程序的分布式跟踪，与Zipkin，HTrace和基于日志的（例如ELK）跟踪兼容。</p>
-</li>
-<li><p>Spring Cloud Data Flow</p>
-<p>  面向现代运行时可组合微服务应用程序的云原生编排服务。易于使用的DSL，拖放式GUI和REST-API共同简化了基于微服务的数据管道的总体编排。</p>
-</li>
-<li><p>Spring Cloud Stream</p>
-<p>  轻量级的事件驱动型微服务框架，用于快速构建可以连接到外部系统的应用程序。在Spring Boot应用程序之间使用Apache Kafka或RabbitMQ发送和接收消息的简单声明性模型。</p>
-</li>
-<li><p>Spring Cloud Stream App Starters</p>
-<p>  Spring Cloud Stream App Starters是基于Spring Boot的Spring Integration应用程序，可与外部系统集成。</p>
-</li>
-<li><p>Spring Cloud Task</p>
-<p>  一个短暂的微服务框架，可快速构建执行有限数量数据处理的应用程序。用于向Spring Boot应用程序添加功能和非功能功能的简单声明。</p>
-</li>
-<li><p>Spring Cloud Task应用入门</p>
-<p>  Spring Cloud Task App Starters是Spring Boot应用程序，可以是任何进程，包括不会永远运行的Spring Batch作业，它们在有限的数据处理周期后结束/停止。</p>
-</li>
-<li><p>春季云动物园管理员</p>
-<p>  使用Apache Zookeeper进行服务发现和配置管理。</p>
-</li>
-<li><p>Spring Cloud AWS</p>
-<p>  与托管的Amazon Web Services轻松集成。它提供了一种方便的方式，可以使用众所周知的Spring习语和API（例如消息传递或缓存API）与AWS提供的服务进行交互。开发人员可以围绕托管服务构建应用程序，而无需关心基础结构或维护。</p>
-</li>
-<li><p>Spring Cloud连接器</p>
-<p>  使各种平台上的PaaS应用程序轻松连接到后端服务，例如数据库和消息代理（该项目以前称为“ Spring Cloud”）。</p>
-</li>
-<li><p>Spring Cloud Starters</p>
-<p>  Spring Boot风格的启动程序项目可简化Spring Cloud使用者的依赖关系管理。（作为一个项目停产，并在Angel.SR2之后与其他项目合并。）</p>
-</li>
-<li><p>Spring Cloud CLI</p>
-<p>  Spring Boot CLI插件，用于在Groovy中快速创建Spring Cloud组件应用程序</p>
-</li>
-<li><p>春云合约</p>
-<p>  Spring Cloud Contract是一个总括项目解决方案，可帮助用户成功实施“消费者驱动合同”方法。</p>
-</li>
-<li><p>Spring Cloud Gateway</p>
-<p>  Spring Cloud Gateway是基于Project Reactor的智能可编程路由器。</p>
-</li>
-<li><p>Spring Cloud OpenFeign</p>
-<p>  Spring Cloud OpenFeign通过自动配置并绑定到Spring Environment和其他Spring编程模型惯用法为Spring Boot应用程序提供集成。</p>
-</li>
-<li><p>春季云管道</p>
-<p>  Spring Cloud Pipelines提供了一个可靠的部署管道，其中包含一些步骤，以确保您的应用程序可以零停机时间进行部署，并且可以轻松回滚某些错误。</p>
-</li>
-<li><p>弹簧云功能</p>
-<p>  Spring Cloud Function通过功能促进业务逻辑的实现。它支持跨无服务器提供程序的统一编程模型，并支持独立运行（本地或在PaaS中）的功能。</p>
-</li>
-</ul>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
-<li><a href="https://blog.csdn.net/javacoder_juejue/article/details/81192747" target="_blank" rel="noopener">https://blog.csdn.net/javacoder_juejue/article/details/81192747</a></li>
-</ul>
+                <h3 id="《不可征服》"><a href="#《不可征服》" class="headerlink" title="《不可征服》"></a>《不可征服》</h3><p>透过覆盖我的夜色，我看见黑暗层层叠叠。<br>感谢上帝赐予我，不可征服的灵魂。<br>就算被地狱紧紧拽住，我也从未退避哀求，<br>遭受命运的重重打击，我满头鲜血，却头颅昂起。<br>在愤怒和悲伤的尘世外，耸立的不只是恐怖的影子，<br>但面对未来的威胁，你会发现，我无所畏惧。<br>无论命运之门多么狭窄，也无论承受怎样的惩罚。<br>我，是我命运的主宰，<br>我，是我灵魂的统帅！</p>
 
             </div>
             <hr/>
@@ -576,7 +389,7 @@ NOSQL+分库分表+Mycat
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://stacksg.club/2019/10/30/java/microservice/">http://stacksg.club/2019/10/30/java/microservice/</a>
+                    <a href="http://stacksg.club/2019/11/30/DataStructures/BinarySearchTree/">http://stacksg.club/2019/11/30/DataStructures/BinarySearchTree/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -614,16 +427,8 @@ NOSQL+分库分表+Mycat
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Java/">
-                                    <span class="chip bg-color">Java</span>
-                                </a>
-                            
-                                <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">
-                                    <span class="chip bg-color">微服务</span>
-                                </a>
-                            
-                                <a href="/tags/Sping-Cloud/">
-                                    <span class="chip bg-color">Sping Cloud</span>
+                                <a href="/tags/%E4%B8%8D%E5%8F%AF%E5%BE%81%E6%9C%8D/">
+                                    <span class="chip bg-color">不可征服</span>
                                 </a>
                             
                         </div>
@@ -661,46 +466,48 @@ NOSQL+分库分表+Mycat
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/11/03/softwareconcept/webservice/">
+                <a href="/2019/11/30/DataStructures/BinarySearchTree/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="WebService">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="不可征服">
                         
-                        <span class="card-title">WebService</span>
+                        <span class="card-title">不可征服</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            WebService的概念
+                            我，是我命运的主宰，我，是我灵魂的统帅！
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-03
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-30
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/WebService/" class="post-category">
-                                    WebService
+                            <a href="/categories/%E4%B8%8D%E5%8F%AF%E5%BE%81%E6%9C%8D/" class="post-category">
+                                    不可征服
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/WebService/">
-                        <span class="chip bg-color">WebService</span>
+                    <a href="/tags/%E4%B8%8D%E5%8F%AF%E5%BE%81%E6%9C%8D/">
+                        <span class="chip bg-color">不可征服</span>
                     </a>
                     
                 </div>
@@ -714,31 +521,31 @@ NOSQL+分库分表+Mycat
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/10/25/mysql/index/">
+                <a href="/2019/11/17/java/IDEA2019-3%E7%A0%B4%E8%A7%A3/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="MySQL忘记密码怎么办？">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="IDEA2019.3破解">
                         
-                        <span class="card-title">MySQL忘记密码怎么办？</span>
+                        <span class="card-title">IDEA2019.3破解</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            MySQL忘记密码怎么办？
+                            IDEA破解
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-10-25
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-17
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/MySQL/" class="post-category">
-                                    MySQL
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
                                 </a>
                             
                             
@@ -748,8 +555,12 @@ NOSQL+分库分表+Mycat
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/MySQL/">
-                        <span class="chip bg-color">MySQL</span>
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/IDEA/">
+                        <span class="chip bg-color">IDEA</span>
                     </a>
                     
                 </div>
