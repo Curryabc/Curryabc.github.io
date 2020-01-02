@@ -494,7 +494,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"hexo","value":1},{"name":"算法","value":3},{"name":"数据结构","value":2},{"name":"计算机网络","value":1},{"name":"Docker","value":2},{"name":"GitHub Pages","value":1},{"name":"Linux","value":2},{"name":"MySQL","value":1},{"name":"other","value":2},{"name":"Java","value":1},{"name":"WebService","value":1},{"name":"微服务","value":1}],
+                data: [{"name":"数据结构","value":2},{"name":"算法","value":3},{"name":"计算机网络","value":1},{"name":"hexo","value":1},{"name":"Docker","value":2},{"name":"GitHub Pages","value":1},{"name":"Linux","value":2},{"name":"Java","value":1},{"name":"MySQL","value":1},{"name":"other","value":2},{"name":"WebService","value":1},{"name":"微服务","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -518,7 +518,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["算法","Linux","数据结构","JDK","Tomcat","杂谈","Java","串","稀疏数组","三元组法"]
+                data: ["算法","Linux","数据结构","JDK","Tomcat","Java","杂谈","递归","分治","哈希表"]
             }
         ],
         yAxis: [
@@ -774,6 +774,17 @@ $(function () {
     <script src="/js/matery.js"></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', '');
+</script>
 
 
     <!-- Baidu Analytics -->
