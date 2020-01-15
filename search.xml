@@ -4,6 +4,62 @@
   
     
     <entry>
+      <title>搭建一个专属自己的域名邮箱</title>
+      <link href="/2020/01/14/createsite/%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E4%B8%93%E5%B1%9E%E8%87%AA%E5%B7%B1%E7%9A%84%E5%9F%9F%E5%90%8D%E9%82%AE%E7%AE%B1/"/>
+      <url>/2020/01/14/createsite/%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E4%B8%93%E5%B1%9E%E8%87%AA%E5%B7%B1%E7%9A%84%E5%9F%9F%E5%90%8D%E9%82%AE%E7%AE%B1/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>因为最近申请备案的域名下来了，所以就在思考能把它用在什么地方，正好看到了域名邮箱这个东西。</p></blockquote><h3 id="域名邮箱"><a href="#域名邮箱" class="headerlink" title="域名邮箱"></a>域名邮箱</h3><ul><li><p>只要拥有一个属于自己的域名，比如xxx.com，就可以申请自己的域名邮箱，也就是企业邮箱<a href="mailto:yyy@xxx.com" target="_blank" rel="noopener">yyy@xxx.com</a>。</p></li><li><p>腾讯有<a href="https://exmail.qq.com/onlinesell/intro" target="_blank" rel="noopener">企业邮箱免费版</a>可以免费申请。</p></li></ul><p><img src="/images/createsite/mail/exmail.png" alt=""></p><ul><li>按照要求填写信息：</li></ul><p><img src="/images/createsite/mail/wechatwork.png" alt=""></p><ul><li>根据提示完成后序步骤。之后来到重要的一步，域名设置邮箱解析：</li></ul><p><img src="/images/createsite/mail/resolve.png" alt=""></p><ul><li>在这一步可能会碰到一个问题，如果域名已经设置了CNAME解析，MX解析就会冲突。比如我的：</li></ul><p><img src="/images/createsite/mail/chongtu.png" alt=""></p><p>具体冲突原因参考<a href="https://www.oldking.net/121.html" target="_blank" rel="noopener">这里</a>。</p><p>我已经使用了CNAME解析做CDN加速，而CDN加速阿里云只提供了CNAME解析一种配置方式，为了不影响网站的打开速度，只能让邮箱配置委屈一下，使用二级域名绑定邮箱服务器。</p><p><img src="/images/createsite/mail/mailresolve.png" alt=""></p><ul><li>解析配置成功后，来到了腾讯企业邮箱管理界面：</li></ul><p><img src="/images/createsite/mail/exmailM.png" alt=""></p><ul><li>可以点击添加成员来添加邮箱用户。</li></ul><p><img src="/images/createsite/mail/add.png" alt=""></p><p>到此，域名邮箱配置完成。</p><h3 id="知识库"><a href="#知识库" class="headerlink" title="知识库"></a>知识库</h3><ul><li>对CNAME,MX等解析不了解含义可以参考阿里云<a href="https://help.aliyun.com/knowledge_detail/29725.html?spm=a2c1d.8251892.0.0.10bc5b766LC8zM&_from=help_widget_detail" target="_blank" rel="noopener">操作指南</a>。</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 域名邮箱 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 腾讯企业邮箱 </tag>
+            
+            <tag> 域名邮箱 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>GitHub Pages+CDN</title>
+      <link href="/2020/01/14/createsite/GitHub%20Pages+CDN/"/>
+      <url>/2020/01/14/createsite/GitHub%20Pages+CDN/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>在之前的文章中提到过给GitHub Pages绑定自己的域名，虽然可以完成个人网站的效果，但是访问速度特别慢。所以我想着用CDN加速提高一下自己网站的访问速度。</p></blockquote><h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><ul><li>CDN加速的前提是域名必须已经备案，所以需要备案域名，可以在阿里云申请<a href="https://beian.aliyun.com/" target="_blank" rel="noopener">备案</a>，一般半个月左右的时间就可以成功。</li></ul><h3 id="开启CDN加速"><a href="#开启CDN加速" class="headerlink" title="开启CDN加速"></a>开启CDN加速</h3><ul><li><p>备案成功后的域名可以使用CDN加速功能，我使用的是阿里云的<a href="https://dcdn.console.aliyun.com/" target="_blank" rel="noopener">全站加速</a>。</p></li><li><p>开通全站加速功能后，在”域名管理”向中添加域名：</p></li></ul><p><img src="/images/createsite/qzjs.png" alt=""></p><ul><li>添加成功后配置回源host:</li></ul><p><img src="/images/createsite/hyhost.png" alt=""></p><ul><li>然后再配置HTTPS,在这里需要开通阿里云的另一个产品<a href="https://common-buy.aliyun.com/?spm=5176.2020520154.cas.1.6b1656a7XUGl4Z&commodityCode=cas#/buy" target="_blank" rel="noopener">SSL证书</a>,这里面有一个免费个人版的证书。</li></ul><p><img src="/images/createsite/ssl.png" alt=""></p><ul><li>开通成功后再回到全站加速控制台，配置https:</li></ul><p><img src="/images/createsite/https.png" alt=""></p><p>至此CDN全站加速功能开通完成，接下来配置域名解析。</p><h3 id="配置CNAME"><a href="#配置CNAME" class="headerlink" title="配置CNAME"></a>配置CNAME</h3><ul><li>全站加速配置成功后会得到一个全站加速域名，需要将这个域名配置到待加速域名的解析列表中。</li></ul><p><img src="/images/createsite/domain.png" alt=""></p><p><img src="/images/createsite/resolve.png" alt=""></p><p>到这里CDN加速就配置完成了。</p><h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p><a href="https://ping.chinaz.com/" target="_blank" rel="noopener">ping检测</a>看看效果如何：</p><p><img src="/images/createsite/ping.png" alt=""></p><ul><li>想知道CDN是否已经生效，可以看ping测试的源ip地址，如果是多个不同的ip,则证明CDN生效了。</li></ul><p><img src="/images/createsite/pingip.png" alt=""></p><h3 id="知识库"><a href="#知识库" class="headerlink" title="知识库"></a>知识库</h3><ul><li><p>SSL 参考阿里云<a href="https://help.aliyun.com/document_detail/28535.html?spm=a2c4g.11174283.3.1.713f6fd4aTdibO" target="_blank" rel="noopener">产品介绍</a></p></li><li><p>CDN 参考阿里云<a href="https://help.aliyun.com/document_detail/27101.html?spm=a2c4g.11186623.6.548.4b384868NkHb1Q" target="_blank" rel="noopener">文档</a></p></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> GitHub Pages </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> aliyun </tag>
+            
+            <tag> CDN </tag>
+            
+            <tag> GitHub Pages </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>前端学习</title>
       <link href="/2020/01/03/webclient/%E7%BD%91%E9%A1%B5%E5%B8%83%E5%B1%80/"/>
       <url>/2020/01/03/webclient/%E7%BD%91%E9%A1%B5%E5%B8%83%E5%B1%80/</url>
@@ -462,10 +518,10 @@
     
     <entry>
       <title>使用阿里云服务器搭建个人网站</title>
-      <link href="/2019/10/23/createsite/index/"/>
-      <url>/2019/10/23/createsite/index/</url>
+      <link href="/2019/10/23/createsite/ecs%E6%90%AD%E5%BB%BA%E7%BD%91%E7%AB%99/"/>
+      <url>/2019/10/23/createsite/ecs%E6%90%AD%E5%BB%BA%E7%BD%91%E7%AB%99/</url>
       
-        <content type="html"><![CDATA[<h3 id="准备工具："><a href="#准备工具：" class="headerlink" title="准备工具："></a>准备工具：</h3><ul><li>远程登陆工具SecureCRT</li><li>文件传输工具Xftp</li><li>百度网盘链接：<br>链接：<a href="https://pan.baidu.com/s/10WNx25GQLMNtVQaZh5m1Eg" target="_blank" rel="noopener">https://pan.baidu.com/s/10WNx25GQLMNtVQaZh5m1Eg</a> 提取码：6pyc </li></ul><ol><li><p>购买云主机：</p><ul><li>如果年龄小于24岁，可以阿里云学生享受优惠活动。</li></ul><ol><li><p>注册阿里云账号，百度搜索“云翼计划”关键字，进入活动主页面，选择购买相应的服务器套餐。</p><p> <img src="/images/createsite/goumai.png" alt=""></p></li><li><p>购买成功之后来到”控制台”页面，在控制台主页的”已开通的云产品”项下找到服务器项点击。</p><p> <img src="/images/createsite/daohang.png" alt=""></p></li><li><p>进入服务器项之后能够看到自己已购买的服务器列表，点击进入。</p><p> <img src="/images/createsite/server-list.png" alt=""></p></li><li><p>在”服务器管理”主页面中点击”应用部署”项的”立即设置”按钮，进而设置服务器系统的root密码。</p><p> <img src="/images/createsite/set.png" alt=""><br> <img src="/images/createsite/setpw.png" alt=""></p></li><li><p>设置好root密码后，使用CRT远程连接工具登陆服务器。</p><p> <img src="/images/createsite/login.png" alt=""><br> <img src="/images/createsite/success.png" alt=""><br> 显示以上信息则登陆云主机成功。</p></li></ol></li><li><p>在服务器中安装jdk+tomcat:</p><p> 参考另一篇文章: <a href="/2019/10/23/linux/dev/">linux环境安装jdk-tomcat</a></p></li><li><p>购买域名并设置域名解析：</p></li></ol>]]></content>
+        <content type="html"><![CDATA[<h3 id="准备工具："><a href="#准备工具：" class="headerlink" title="准备工具："></a>准备工具：</h3><ul><li>远程登陆工具SecureCRT</li><li>文件传输工具Xftp</li><li>百度网盘链接：<br>链接：<a href="https://pan.baidu.com/s/10WNx25GQLMNtVQaZh5m1Eg" target="_blank" rel="noopener">https://pan.baidu.com/s/10WNx25GQLMNtVQaZh5m1Eg</a> 提取码：6pyc </li></ul><ol><li><p>购买云主机：</p><ul><li>如果年龄小于24岁，可以阿里云学生享受优惠活动。</li></ul><ol><li><p>注册阿里云账号，百度搜索“云翼计划”关键字，进入活动主页面，选择购买相应的服务器套餐。</p><p> <img src="/images/createsite/goumai.png" alt=""></p></li><li><p>购买成功之后来到”控制台”页面，在控制台主页的”已开通的云产品”项下找到服务器项点击。</p><p> <img src="/images/createsite/daohang.png" alt=""></p></li><li><p>进入服务器项之后能够看到自己已购买的服务器列表，点击进入。</p><p> <img src="/images/createsite/server-list.png" alt=""></p></li><li><p>在”服务器管理”主页面中点击”应用部署”项的”立即设置”按钮，进而设置服务器系统的root密码。</p><p> <img src="/images/createsite/set.png" alt=""><br> <img src="/images/createsite/setpw.png" alt=""></p></li><li><p>设置好root密码后，使用CRT远程连接工具登陆服务器。</p><p> <img src="/images/createsite/login.png" alt=""><br> <img src="/images/createsite/success.png" alt=""><br> 显示以上信息则登陆云主机成功。</p></li></ol></li><li><p>在服务器中安装jdk+tomcat:</p><p> 参考另一篇文章: <a href="/2019/10/23/linux/dev/">linux环境安装jdk-tomcat</a></p></li><li><p>购买域名并设置域名解析：</p><ul><li><p>选择并购买自己喜欢的域名后，在控制台中配置域名解析：</p><p><img src="/images/createsite/A.png" alt=""><br><img src="/images/createsite/AWWW.png" alt=""></p></li><li><p>配置成功后过一会域名就可以解析到自己的服务器，在tomcat，配置相应端口号就可以访问。</p></li></ul></li></ol>]]></content>
       
       
       <categories>
@@ -477,13 +533,13 @@
       
         <tags>
             
+            <tag> aliyun </tag>
+            
             <tag> Linux </tag>
             
             <tag> JDK </tag>
             
             <tag> Tomcat </tag>
-            
-            <tag> aliyun </tag>
             
         </tags>
       
