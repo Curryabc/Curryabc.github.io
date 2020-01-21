@@ -6,10 +6,9 @@
     <meta charset="utf-8">
     <meta name="keywords" content="递归和分治思想, IT,程序员,技术博客">
     <meta name="description" content="递归定义一种直接或间接调用自身的函数称为递归函数，使用递归可以解决每次面临同一问题，由较简单到最简单的情况，需要注意的是递归的边界条件，也就是终止条件。
-示例
-斐波那契数列
-
-指的是这样一个数列：1、1、2、3、5、8、13、21、34、…">
+思考步骤
+找重复–子问题（在总问题中划一刀，切出子问题）
+找变化：变化的量作为参数（递">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -379,7 +378,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2019-12-31
+                    2020-01-21
                 </div>
                 
 
@@ -397,10 +396,17 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>一种直接或间接调用自身的函数称为递归函数，使用递归可以解决每次面临同一问题，由较简单到最简单的情况，需要注意的是递归的边界条件，也就是终止条件。</p>
+<h4 id="思考步骤"><a href="#思考步骤" class="headerlink" title="思考步骤"></a>思考步骤</h4><ol>
+<li>找重复–子问题（在总问题中划一刀，切出子问题）</li>
+<li>找变化：变化的量作为参数（递归写不出来的时候思考是否缺了变化参数）</li>
+<li>找边界：出口<br>重复中的变化，变化中的重复<br>分解为：直接量+小规模子问题<br>分解为：多个小规模子问题<br>递归树：先纵后横</li>
+</ol>
+<h4 id="递归算法的时间复杂度分析"><a href="#递归算法的时间复杂度分析" class="headerlink" title="递归算法的时间复杂度分析"></a>递归算法的时间复杂度分析</h4><p><img src="/images/algorithm/dg.png" alt=""></p>
 <h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><ol>
-<li><p>斐波那契数列<br><img src="/images/algorithm/fib.png" alt=""></p>
+<li><p>斐波那契数列</p>
+<p> <img src="/images/algorithm/fib.png" alt=""></p>
 <ul>
-<li><p>指的是这样一个数列：1、1、2、3、5、8、13、21、34、……在数学上，斐波那契数列以如下被以递推的方法定义：F(1)=1，F(2)=1, F(n)=F(n-1)+F(n-2)（n&gt;=3，n∈N*）</p>
+<li><p>指的是这样一个数列：1、1、2、3、5、8、13、21、34、……在数学上，斐波那契数列以如下被以递推的方法定义：F(0)=0，F(1)=1, F(n)=F(n-1)+F(n-2)（n&gt;=3，n∈N*）</p>
 </li>
 <li><p>迭代方式代码实现</p>
 <pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -432,6 +438,8 @@
   <span class="token keyword">return</span> <span class="token function">fib</span><span class="token punctuation">(</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token function">fib</span><span class="token punctuation">(</span>i <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">// F(n)=F(n-1)+F(n-2)</span>
 <span class="token punctuation">}</span></code></pre>
 </li>
+<li><p>时间复杂度：T(n) = 2T(n - 1) + O(1) –&gt; O(2^n)</p>
+</li>
 </ul>
 </li>
 <li><p>逆序打印输入的字符串</p>
@@ -452,6 +460,42 @@
   <span class="token punctuation">{</span>
       <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%c"</span><span class="token punctuation">,</span> c<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+</li>
+</ul>
+</li>
+<li><p>最大公约数</p>
+<ul>
+<li>递推公式：f(m,n)=f(n,m%n)</li>
+<li>递归实现：<pre class=" language-c"><code class="language-c">  <span class="token keyword">int</span> <span class="token function">gcc</span><span class="token punctuation">(</span><span class="token keyword">int</span> m<span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>
+      <span class="token punctuation">{</span>
+          <span class="token keyword">return</span> m<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      <span class="token keyword">return</span> <span class="token function">gcc</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> m <span class="token operator">%</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span></code></pre>
+</li>
+<li>时间复杂度：O(2logn)</li>
+</ul>
+</li>
+<li><p>插入排序</p>
+<ul>
+<li>对k-1个元素进行插入排序，将第k个元素插入k-1个有序元素中</li>
+<li>递归实现<pre class=" language-java"><code class="language-java"><span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">insertSort</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>k <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment" spellcheck="true">//对k-1个元素排序</span>
+  <span class="token function">insertSort</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> k <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// 把第k个元素插入到前面k-1个有序序列中</span>
+  <span class="token keyword">int</span> index <span class="token operator">=</span> k <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+  <span class="token keyword">int</span> x <span class="token operator">=</span> arr<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token keyword">while</span> <span class="token punctuation">(</span>index <span class="token operator">>=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> x <span class="token operator">&lt;</span> arr<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      arr<span class="token punctuation">[</span>index <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">;</span>
+      index<span class="token operator">--</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  arr<span class="token punctuation">[</span>index <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> x<span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
 </li>
 </ul>
