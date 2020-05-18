@@ -219,6 +219,19 @@
 </header>
 
     
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
 
 
 
@@ -378,7 +391,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2019-11-17
+                    2020-01-30
                 </div>
                 
 
@@ -441,6 +454,56 @@
   <span class="token punctuation">}</span></code></pre>
 </li>
 <li><p>该算法最坏情况下要进行M<em>(N-M+1)次比较，时间复杂度为O(M</em>N)。</p>
+</li>
+</ul>
+<h4 id="Rabin-Karp"><a href="#Rabin-Karp" class="headerlink" title="Rabin Karp"></a>Rabin Karp</h4><ul>
+<li><p>使用哈希函数算出子串的hash值，然后在目标串中寻找匹配的hash值即能找到匹配的子串。</p>
+</li>
+<li><p>hash，复杂度O(M*N):</p>
+<pre class=" language-java"><code class="language-java">  <span class="token keyword">static</span> <span class="token keyword">long</span> seed <span class="token operator">=</span> <span class="token number">31</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">static</span> <span class="token keyword">long</span> <span class="token function">hash</span><span class="token punctuation">(</span>String s<span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token keyword">long</span> hash <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+      <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          hash <span class="token operator">=</span> hash <span class="token operator">*</span> seed <span class="token operator">+</span> s<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token keyword">return</span> hash<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">RabinKarp</span><span class="token punctuation">(</span>String p<span class="token punctuation">,</span> String s<span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token keyword">long</span> hash <span class="token operator">=</span> <span class="token function">hash</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">+</span> p<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;=</span> s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+          <span class="token keyword">long</span> t <span class="token operator">=</span> <span class="token function">hash</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> i <span class="token operator">+</span> p<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword">if</span> <span class="token punctuation">(</span>t <span class="token operator">==</span> hash<span class="token punctuation">)</span><span class="token punctuation">{</span>
+              System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"match_index:"</span> <span class="token operator">+</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span></code></pre>
+</li>
+<li><p>优化(滚动hash,复杂度O(N)):</p>
+<pre class=" language-java"><code class="language-java">  <span class="token operator">/</span>优化：滚动hash
+  <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">RabinKarp2</span><span class="token punctuation">(</span>String p<span class="token punctuation">,</span> String s<span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token keyword">int</span> n <span class="token operator">=</span> p<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">long</span> pHash <span class="token operator">=</span> <span class="token function">hash</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">long</span> hash <span class="token operator">=</span> <span class="token function">hash</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>hash <span class="token operator">==</span> pHash<span class="token punctuation">)</span><span class="token punctuation">{</span>
+          System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"match_index:"</span> <span class="token operator">+</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token keyword">long</span> t <span class="token operator">=</span> hash<span class="token punctuation">;</span>
+      <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> n<span class="token punctuation">;</span> i <span class="token operator">&lt;</span> s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+          <span class="token comment" spellcheck="true">//新的hash=加入新字符后的hash-头一个字符的hash</span>
+          t <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>t <span class="token operator">*</span> seed <span class="token operator">+</span> s<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>i <span class="token operator">-</span> n<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token keyword">long</span><span class="token punctuation">)</span> Math<span class="token punctuation">.</span><span class="token function">pow</span><span class="token punctuation">(</span>seed<span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">%</span>Long<span class="token punctuation">.</span>MAX_VALUE<span class="token punctuation">;</span>
+
+          <span class="token keyword">if</span> <span class="token punctuation">(</span>t <span class="token operator">==</span> pHash<span class="token punctuation">)</span><span class="token punctuation">{</span>
+              System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"match_index:"</span> <span class="token operator">+</span> <span class="token punctuation">(</span>i <span class="token operator">-</span> n <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span></code></pre>
 </li>
 </ul>
 <h4 id="KMP算法"><a href="#KMP算法" class="headerlink" title="KMP算法"></a>KMP算法</h4><ul>
@@ -521,7 +584,7 @@
           <span class="token punctuation">}</span>
       <span class="token punctuation">}</span> 
   <span class="token punctuation">}</span></code></pre>
-<h3 id="未完待续。。。"><a href="#未完待续。。。" class="headerlink" title="未完待续。。。"></a>未完待续。。。</h3></li>
+</li>
 </ul>
 <h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
 <li><a href="https://blog.csdn.net/paincupid/article/details/81159320" target="_blank" rel="noopener">https://blog.csdn.net/paincupid/article/details/81159320</a></li>

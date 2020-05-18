@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="搭建一个专属自己的域名邮箱, IT,程序员,技术博客">
+    <meta name="keywords" content="拥有专属自己的域名邮箱, IT,程序员,技术博客">
     <meta name="description" content="
 因为最近申请备案的域名下来了，所以就在思考能把它用在什么地方，正好看到了域名邮箱这个东西。
 
@@ -19,7 +19,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>搭建一个专属自己的域名邮箱 | stacksg</title>
+    <title>拥有专属自己的域名邮箱 | stacksg</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -222,16 +222,29 @@
 </header>
 
     
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        搭建一个专属自己的域名邮箱
+                        拥有专属自己的域名邮箱
                     </div>
                 </div>
             </div>
@@ -377,7 +390,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-01-15
+                    2020-01-30
                 </div>
                 
 
@@ -564,31 +577,31 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/01/18/lanqiao/problemJB-10/">
+                <a href="/2020/04/27/java/ElasticSearch/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="problemJB-10">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="ElasticSearch入门">
                         
-                        <span class="card-title">problemJB-10</span>
+                        <span class="card-title">ElasticSearch入门</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            第十届蓝桥杯真题
+                            ElasticSearch的学习
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-18
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-27
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%93%9D%E6%A1%A5%E6%9D%AF/" class="post-category">
-                                    蓝桥杯
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
                                 </a>
                             
                             
@@ -598,8 +611,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/">
-                        <span class="chip bg-color">蓝桥杯</span>
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%85%A8%E6%96%87%E6%A3%80%E7%B4%A2/">
+                        <span class="chip bg-color">全文检索</span>
+                    </a>
+                    
+                    <a href="/tags/ElasticSearch/">
+                        <span class="chip bg-color">ElasticSearch</span>
                     </a>
                     
                 </div>
@@ -647,16 +668,16 @@
                 
                 <div class="card-action article-tags">
                     
+                    <a href="/tags/GitHub-Pages/">
+                        <span class="chip bg-color">GitHub Pages</span>
+                    </a>
+                    
                     <a href="/tags/aliyun/">
                         <span class="chip bg-color">aliyun</span>
                     </a>
                     
                     <a href="/tags/CDN/">
                         <span class="chip bg-color">CDN</span>
-                    </a>
-                    
-                    <a href="/tags/GitHub-Pages/">
-                        <span class="chip bg-color">GitHub Pages</span>
                     </a>
                     
                 </div>

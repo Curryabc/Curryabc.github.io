@@ -224,6 +224,19 @@ NOSQL+分库分表+Mycat
 </header>
 
     
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
 
 
 
@@ -383,7 +396,7 @@ NOSQL+分库分表+Mycat
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2019-11-26
+                    2020-05-15
                 </div>
                 
 
@@ -412,7 +425,7 @@ NOSQL+分库分表+Mycat
 <li>应用服务化拆分+消息中间件</li>
 <li>微服务架构</li>
 </ol>
-<h3 id="单体架构（Monolithic）"><a href="#单体架构（Monolithic）" class="headerlink" title="单体架构（Monolithic）"></a>单体架构（Monolithic）</h3><p>十年前左右，我去公司面试时，面试官问我的第一个问题是让我简要介绍下软件设计中的三层设计模型（表示层、业务逻辑处理层、数据访问层）：</p>
+<h3 id="单体架构（Monolithic）"><a href="#单体架构（Monolithic）" class="headerlink" title="单体架构（Monolithic）"></a>单体架构（Monolithic）</h3><p>软件设计中的三层设计模型（表示层、业务逻辑处理层、数据访问层）：</p>
 <ul>
 <li>表示层：通常理解为用于和用户交互的视图层；</li>
 <li>业务逻辑处理层：用户提交请求，经过业务逻辑层处理后，对用户请求作出响应；</li>
@@ -538,7 +551,7 @@ NOSQL+分库分表+Mycat
 <li><p>Spring Cloud Task应用入门</p>
 <p>  Spring Cloud Task App Starters是Spring Boot应用程序，可以是任何进程，包括不会永远运行的Spring Batch作业，它们在有限的数据处理周期后结束/停止。</p>
 </li>
-<li><p>春季云动物园管理员</p>
+<li><p>Spring Cloud Zookeeper</p>
 <p>  使用Apache Zookeeper进行服务发现和配置管理。</p>
 </li>
 <li><p>Spring Cloud AWS</p>
@@ -553,7 +566,7 @@ NOSQL+分库分表+Mycat
 <li><p>Spring Cloud CLI</p>
 <p>  Spring Boot CLI插件，用于在Groovy中快速创建Spring Cloud组件应用程序</p>
 </li>
-<li><p>春云合约</p>
+<li><p>Spring Cloud Contract</p>
 <p>  Spring Cloud Contract是一个总括项目解决方案，可帮助用户成功实施“消费者驱动合同”方法。</p>
 </li>
 <li><p>Spring Cloud Gateway</p>
@@ -562,13 +575,67 @@ NOSQL+分库分表+Mycat
 <li><p>Spring Cloud OpenFeign</p>
 <p>  Spring Cloud OpenFeign通过自动配置并绑定到Spring Environment和其他Spring编程模型惯用法为Spring Boot应用程序提供集成。</p>
 </li>
-<li><p>春季云管道</p>
+<li><p>Spring Cloud Pipelines</p>
 <p>  Spring Cloud Pipelines提供了一个可靠的部署管道，其中包含一些步骤，以确保您的应用程序可以零停机时间进行部署，并且可以轻松回滚某些错误。</p>
 </li>
-<li><p>弹簧云功能</p>
+<li><p>Spring Cloud Function</p>
 <p>  Spring Cloud Function通过功能促进业务逻辑的实现。它支持跨无服务器提供程序的统一编程模型，并支持独立运行（本地或在PaaS中）的功能。</p>
 </li>
 </ul>
+<h3 id="Eureka"><a href="#Eureka" class="headerlink" title="Eureka"></a>Eureka</h3><ul>
+<li>功能：服务的自动注册、发现、状态监控。</li>
+</ul>
+<h4 id="服务端配置"><a href="#服务端配置" class="headerlink" title="服务端配置"></a>服务端配置</h4><p>导入依赖：</p>
+<pre class=" language-java"><code class="language-java"><span class="token operator">&lt;</span>dependency<span class="token operator">></span>
+    <span class="token operator">&lt;</span>groupId<span class="token operator">></span>org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>cloud<span class="token operator">&lt;</span><span class="token operator">/</span>groupId<span class="token operator">></span>
+    <span class="token operator">&lt;</span>artifactId<span class="token operator">></span>spring<span class="token operator">-</span>cloud<span class="token operator">-</span>starter<span class="token operator">-</span>eureka<span class="token operator">-</span>server<span class="token operator">&lt;</span><span class="token operator">/</span>artifactId<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>dependency<span class="token operator">></span></code></pre>
+<p>配置：</p>
+<pre class=" language-java"><code class="language-java">eureka<span class="token operator">:</span>
+  instance<span class="token operator">:</span>
+    hostname<span class="token operator">:</span> localhost #eureka服务端的实例名称
+  client<span class="token operator">:</span>
+    register<span class="token operator">-</span>with<span class="token operator">-</span>eureka<span class="token operator">:</span> <span class="token boolean">false</span> #<span class="token boolean">false</span>表示不向注册中心注册自己。
+    fetch<span class="token operator">-</span>registry<span class="token operator">:</span> <span class="token boolean">false</span> #<span class="token boolean">false</span>表示自己端就是注册中心，我的职责就是维护服务实例，并不需要去检索服务
+    service<span class="token operator">-</span>url<span class="token operator">:</span>
+      defaultZone<span class="token operator">:</span> http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>$<span class="token punctuation">{</span>eureka<span class="token punctuation">.</span>instance<span class="token punctuation">.</span>hostname<span class="token punctuation">}</span><span class="token operator">:</span>$<span class="token punctuation">{</span>server<span class="token punctuation">.</span>port<span class="token punctuation">}</span><span class="token operator">/</span>eureka<span class="token operator">/</span>       
+       #设置与Eureka Server交互的地址查询服务和注册服务都需要依赖这个地址。</code></pre>
+<p>注解配置：</p>
+<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@SpringBootApplication</span>
+<span class="token annotation punctuation">@EnableEurekaServer</span> <span class="token comment" spellcheck="true">//开启eureka server</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">EurekaServerApplication</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        SpringApplication<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span>EurekaServerApplication<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<h4 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h4><p>依赖：</p>
+<pre class=" language-java"><code class="language-java"><span class="token operator">&lt;</span>dependency<span class="token operator">></span>
+    <span class="token operator">&lt;</span>groupId<span class="token operator">></span>org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>cloud<span class="token operator">&lt;</span><span class="token operator">/</span>groupId<span class="token operator">></span>
+    <span class="token operator">&lt;</span>artifactId<span class="token operator">></span>spring<span class="token operator">-</span>cloud<span class="token operator">-</span>starter<span class="token operator">-</span>netflix<span class="token operator">-</span>eureka<span class="token operator">-</span>client<span class="token operator">&lt;</span><span class="token operator">/</span>artifactId<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>dependency<span class="token operator">></span></code></pre>
+<p>配置：</p>
+<pre class=" language-java"><code class="language-java">eureka<span class="token operator">:</span>
+  client<span class="token operator">:</span>
+    service<span class="token operator">-</span>url<span class="token operator">:</span>
+      defaultZone<span class="token operator">:</span> http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>localhost<span class="token operator">:</span><span class="token number">8761</span><span class="token operator">/</span>eureka<span class="token operator">/</span> #指定服务器地址
+  instance<span class="token operator">:</span>
+    prefer<span class="token operator">-</span>ip<span class="token operator">-</span>address<span class="token operator">:</span> <span class="token boolean">false</span> #是否以IP地址注册到服务中心
+    instance<span class="token operator">-</span>id<span class="token operator">:</span> $<span class="token punctuation">{</span>spring<span class="token punctuation">.</span>cloud<span class="token punctuation">.</span>client<span class="token punctuation">.</span>ip<span class="token operator">-</span>address<span class="token punctuation">}</span><span class="token operator">:</span>$<span class="token punctuation">{</span>server<span class="token punctuation">.</span>port<span class="token punctuation">}</span> #动态获取实例id</code></pre>
+<p>注解配置：</p>
+<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@SpringBootApplication</span>
+<span class="token annotation punctuation">@EnableDiscoveryClient</span> <span class="token comment" spellcheck="true">//spring cloud提供 能够提供更好的兼容</span>
+<span class="token comment" spellcheck="true">//@EnableEurekaClient //Netflix提供</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">OrderApplication</span> <span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@Bean</span>
+    <span class="token keyword">public</span> RestTemplate <span class="token function">restTemplate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">RestTemplate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        SpringApplication<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span>OrderApplication<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span>args<span class="token punctuation">)</span> <span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
 <li><a href="https://blog.csdn.net/javacoder_juejue/article/details/81192747" target="_blank" rel="noopener">https://blog.csdn.net/javacoder_juejue/article/details/81192747</a></li>
 </ul>
@@ -709,31 +776,31 @@ NOSQL+分库分表+Mycat
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/11/03/softwareconcept/webservice/">
+                <a href="/2019/11/04/algorithm/sort/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="WebService">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="排序算法">
                         
-                        <span class="card-title">WebService</span>
+                        <span class="card-title">排序算法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            WebService的概念
+                            常见的排序算法
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-03
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-04
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/WebService/" class="post-category">
-                                    WebService
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
                                 </a>
                             
                             
@@ -743,8 +810,12 @@ NOSQL+分库分表+Mycat
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/WebService/">
-                        <span class="chip bg-color">WebService</span>
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%8E%92%E5%BA%8F/">
+                        <span class="chip bg-color">排序</span>
                     </a>
                     
                 </div>
