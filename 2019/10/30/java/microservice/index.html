@@ -396,7 +396,7 @@ NOSQL+分库分表+Mycat
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-05-15
+                    2020-05-21
                 </div>
                 
 
@@ -636,6 +636,63 @@ NOSQL+分库分表+Mycat
         SpringApplication<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span>OrderApplication<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span>args<span class="token punctuation">)</span> <span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre>
+<h4 id="Eureka集群搭建"><a href="#Eureka集群搭建" class="headerlink" title="Eureka集群搭建"></a>Eureka集群搭建</h4><pre class=" language-java"><code class="language-java">server<span class="token operator">:</span>
+  port<span class="token operator">:</span> <span class="token number">8761</span>
+eureka<span class="token operator">:</span>
+  instance<span class="token operator">:</span>
+    hostname<span class="token operator">:</span> localhost #eureka服务端的实例名称
+  client<span class="token operator">:</span>
+    service<span class="token operator">-</span>url<span class="token operator">:</span>
+      defaultZone<span class="token operator">:</span> http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>localhost<span class="token operator">:</span><span class="token number">8762</span><span class="token operator">/</span>eureka<span class="token operator">/</span><span class="token punctuation">,</span>http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>localhost<span class="token operator">:</span><span class="token number">8763</span><span class="token operator">/</span>eureka<span class="token operator">/</span> #指向其他的注册中心
+  eureka<span class="token operator">-</span>service<span class="token operator">-</span>url<span class="token operator">-</span>poll<span class="token operator">-</span>interval<span class="token operator">-</span>seconds<span class="token operator">:</span> <span class="token number">30</span>
+spring<span class="token operator">:</span>
+  application<span class="token operator">:</span>
+    name<span class="token operator">:</span> eureka<span class="token operator">-</span>server<span class="token operator">-</span><span class="token number">01</span></code></pre>
+<h3 id="Feign"><a href="#Feign" class="headerlink" title="Feign"></a>Feign</h3><p><code>Feign是一个声明式Web Service客户端。使用Feign能让编写Web Service客户端更加简单, 它的使用方法是定义一个接口，然后在上面添加注解，同时也支持JAX-RS标准的注解。Feign也支持可拔插式的编码器和解码器。Spring Cloud对Feign进行了封装，使其支持了Spring MVC标准注解和HttpMessageConverters。Feign可以与Eureka和Ribbon组合使用以支持负载均衡。</code></p>
+<h4 id="依赖添加"><a href="#依赖添加" class="headerlink" title="依赖添加"></a>依赖添加</h4><ul>
+<li>在父工程中加入如下依赖管理</li>
+</ul>
+<pre class=" language-java"><code class="language-java"><span class="token operator">&lt;</span>dependencyManagement<span class="token operator">></span>
+    <span class="token operator">&lt;</span>dependencies<span class="token operator">></span>
+        <span class="token operator">&lt;</span>dependency<span class="token operator">></span>
+            <span class="token operator">&lt;</span>groupId<span class="token operator">></span>org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>cloud<span class="token operator">&lt;</span><span class="token operator">/</span>groupId<span class="token operator">></span>
+            <span class="token operator">&lt;</span>artifactId<span class="token operator">></span>spring<span class="token operator">-</span>cloud<span class="token operator">-</span>openfeign<span class="token operator">&lt;</span><span class="token operator">/</span>artifactId<span class="token operator">></span>
+            <span class="token operator">&lt;</span>version<span class="token operator">></span><span class="token number">2.0</span><span class="token punctuation">.</span><span class="token number">0</span><span class="token punctuation">.</span>RC1<span class="token operator">&lt;</span><span class="token operator">/</span>version<span class="token operator">></span>
+            <span class="token operator">&lt;</span>type<span class="token operator">></span>pom<span class="token operator">&lt;</span><span class="token operator">/</span>type<span class="token operator">></span>
+            <span class="token operator">&lt;</span>scope<span class="token operator">></span><span class="token keyword">import</span><span class="token operator">&lt;</span><span class="token operator">/</span>scope<span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>dependency<span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>dependencies<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>dependencyManagement<span class="token operator">></span></code></pre>
+<pre class=" language-java"><code class="language-java"><span class="token operator">&lt;</span>dependency<span class="token operator">></span>
+    <span class="token operator">&lt;</span>groupId<span class="token operator">></span>org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>cloud<span class="token operator">&lt;</span><span class="token operator">/</span>groupId<span class="token operator">></span>
+    <span class="token operator">&lt;</span>artifactId<span class="token operator">></span>spring<span class="token operator">-</span>cloud<span class="token operator">-</span>starter<span class="token operator">-</span>openfeign<span class="token operator">&lt;</span><span class="token operator">/</span>artifactId<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>dependency<span class="token operator">></span></code></pre>
+<h4 id="Feign调用实现"><a href="#Feign调用实现" class="headerlink" title="Feign调用实现"></a>Feign调用实现</h4><ul>
+<li>在启动类中标注@EnableFeignClients注解</li>
+</ul>
+<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@FeignClient</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"product-service"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">OrderRemote</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"/product/{id}"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> Product <span class="token function">findById</span><span class="token punctuation">(</span><span class="token annotation punctuation">@PathVariable</span> Long id<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//接口和product-service中接口保持一致</span>
+<span class="token punctuation">}</span></code></pre>
+<h4 id="调用远程服务"><a href="#调用远程服务" class="headerlink" title="调用远程服务"></a>调用远程服务</h4><pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@RestController</span>
+<span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/order"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">OderController</span> <span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@Autowired</span>
+    OrderRemote orderRemote<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"/buy/{id}"</span><span class="token punctuation">,</span>method <span class="token operator">=</span> RequestMethod<span class="token punctuation">.</span>GET<span class="token punctuation">)</span>
+    <span class="token keyword">public</span> Product <span class="token function">findById</span><span class="token punctuation">(</span><span class="token annotation punctuation">@PathVariable</span> Long id<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> orderRemote<span class="token punctuation">.</span><span class="token function">findById</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<ul>
+<li>Feign默认采用轮询方式访问</li>
+</ul>
+<h3 id="Hystrix"><a href="#Hystrix" class="headerlink" title="Hystrix"></a>Hystrix</h3><ul>
+<li><a href="http://www.ityouknow.com/springcloud/2017/05/16/springcloud-hystrix.html" target="_blank" rel="noopener">参考</a></li>
+</ul>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
 <li><a href="https://blog.csdn.net/javacoder_juejue/article/details/81192747" target="_blank" rel="noopener">https://blog.csdn.net/javacoder_juejue/article/details/81192747</a></li>
 </ul>

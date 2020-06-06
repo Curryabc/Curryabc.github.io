@@ -4,18 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Docker学习笔记, IT,程序员,技术博客">
-    <meta name="description" content="参考资料
-尚硅谷周阳
-
-环境
-Centos 6.8
-
-
-Docker 1.7.1
-
-Docker安装
-目前，Docker官网上提供的docker是基于centos7系列安装方法。如果我们想在低于3.x内核的操作系统（比如Centos6.8）">
+    <meta name="keywords" content="线段树, IT,程序员,技术博客">
+    <meta name="description" content="线段树定义
+线段树是一种二叉搜索树，与区间树相似，它将一个区间划分成一些单元区间，每个单元区间对应线段树中的一个叶结点。
+线段树是一颗满二叉树（所有叶子的深度都相同，并且每个节点要么是叶子要么有两个孩子）。
+当有n个元素时，对区间的操作可以">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -23,7 +16,7 @@ Docker安装
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Docker学习笔记 | stacksg</title>
+    <title>线段树 | stacksg</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -242,13 +235,13 @@ Docker安装
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Docker学习笔记
+                        线段树
                     </div>
                 </div>
             </div>
@@ -360,12 +353,12 @@ Docker安装
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Linux/">
-                                <span class="chip bg-color">Linux</span>
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                                <span class="chip bg-color">数据结构</span>
                             </a>
                         
-                            <a href="/tags/Docker/">
-                                <span class="chip bg-color">Docker</span>
+                            <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/">
+                                <span class="chip bg-color">线段树</span>
                             </a>
                         
                     </div>
@@ -376,8 +369,8 @@ Docker安装
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Docker/" class="post-category">
-                                Docker
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
+                                数据结构
                             </a>
                         
                     </div>
@@ -388,14 +381,9 @@ Docker安装
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-10-05
+                    2020-06-06
                 </div>
                 
-                
-                <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2019-11-02
-                </div>
                 
 
                 
@@ -411,82 +399,96 @@ Docker安装
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
-<li><a href="/file/Docker.html">尚硅谷周阳</a></li>
+                <h3 id="线段树定义"><a href="#线段树定义" class="headerlink" title="线段树定义"></a>线段树定义</h3><ul>
+<li>线段树是一种二叉搜索树，与区间树相似，它将一个区间划分成一些单元区间，每个单元区间对应线段树中的一个叶结点。</li>
+<li>线段树是一颗满二叉树（所有叶子的深度都相同，并且每个节点要么是叶子要么有两个孩子）。</li>
+<li>当有n个元素时，对区间的操作可以在O(logn)的时间内完成。</li>
+<li>根据节点中维护数据的不同，线段树可以有不同的功能。</li>
 </ul>
-<h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><blockquote>
-<p>Centos 6.8</p>
-</blockquote>
-<blockquote>
-<p>Docker 1.7.1</p>
-</blockquote>
-<h3 id="Docker安装"><a href="#Docker安装" class="headerlink" title="Docker安装"></a>Docker安装</h3><blockquote>
-<p><code>目前，Docker官网上提供的docker是基于centos7系列安装方法。如果我们想在低于3.x内核的操作系统（比如Centos6.8）上装Docker最新版，势必要升级内核。但是想要在Centos6.7上安装可以安装较低版本的Docker。事实上，对于内核版本要大于3.10这个要求，是从Docker1.8.2版本开始的，Docker之前的版本是可以运行在较低内核版本之上的，比如1.7.1。</code></p>
-</blockquote>
-<blockquote>
-<p><code>在Centos6.8的标准yum源中已经没有Docker的安装包了，这时，我们需要安装EPEL。EPEL（Extra Packages for Enterprise Linux），企业版Linux额外包，RHEL分布非标准包的社区类库。</code></p>
-</blockquote>
-<ol>
-<li><p>Docker使用EPEL发布，RHEL系的OS首先要确保已经持有EPEL仓库，否则先检查OS的版本，然后安装相应的EPEL包。</p>
-<pre class=" language-bash"><code class="language-bash"> <span class="token punctuation">[</span>root@curry 桌面<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># yum install -y epel-release</span></code></pre>
-</li>
-<li><p>安装Docker</p>
-<pre class=" language-bash"><code class="language-bash"> <span class="token punctuation">[</span>root@curry 桌面<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># yum install docker-io</span></code></pre>
-</li>
-<li><p>系统提示</p>
-<blockquote>
-<p>No package docker-io available.</p>
-</blockquote>
-</li>
-<li><p>直接改用下载源安装</p>
-<pre class=" language-bash"><code class="language-bash"> <span class="token punctuation">[</span>root@curry 桌面<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># yum install https://get.docker.com/rpm/1.7.1/centos-6/RPMS/x86_64/docker-engine-1.7.1-1.el6.x86_64.rpm</span></code></pre>
-</li>
-<li><p>安装后的配置文件</p>
-<blockquote>
-<p>/etc/sysconfig/docker</p>
-</blockquote>
-</li>
-<li><p>启动Docker后台服务</p>
-<pre class=" language-bash"><code class="language-bash"> <span class="token punctuation">[</span>root@curry 桌面<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># service docker start</span></code></pre>
-<p> <img src="/images/Docker/start.png" alt=""></p>
-</li>
-<li><p>验证Docker安装是否成功</p>
-<pre class=" language-bash"><code class="language-bash"> <span class="token punctuation">[</span>root@curry 桌面<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># docker version</span></code></pre>
-<p> <img src="/images/Docker/version.png" alt=""></p>
-</li>
+<p><img src="/images/lanqiao/st/st.png" alt=""></p>
+<h3 id="基于线段树的Range-Minimum-Query-RMQ"><a href="#基于线段树的Range-Minimum-Query-RMQ" class="headerlink" title="基于线段树的Range Minimum Query(RMQ)"></a>基于线段树的Range Minimum Query(RMQ)</h3><ul>
+<li>该线段树在给定数列a0, a1, …, a(n-1)的情况下，可以在O(logn)时间内完成如下操作：<ol>
+<li>给定s和t,求a(s),a(s+1),…,a(t)的最小值</li>
+<li>给定i和x,把a(i)的值改为x</li>
 </ol>
-<p><em>Docker安装成功！！！</em></p>
-<h3 id="Docker配置阿里云镜像加速"><a href="#Docker配置阿里云镜像加速" class="headerlink" title="Docker配置阿里云镜像加速"></a>Docker配置阿里云镜像加速</h3><ol>
-<li><p>登陆阿里云平台，选择”容器镜像服务”。</p>
-<p> <img src="/images/Docker/aliyun.png" alt=""></p>
 </li>
-<li><p>点击”管理控制台”，选择”镜像加速器”项，即可看到自己的加速器地址链接。</p>
-<p> <img src="/images/Docker/jiasu.png" alt=""></p>
+</ul>
+<p><img src="/images/lanqiao/st/rmq.png" alt=""></p>
+<ul>
+<li><p>代码实现：</p>
+<pre class=" language-java"><code class="language-java">  <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">RMQ</span> <span class="token punctuation">{</span>
+      <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> INF <span class="token operator">=</span> Integer<span class="token punctuation">.</span>MAX_VALUE<span class="token punctuation">;</span>
+      <span class="token comment" spellcheck="true">//节点个数</span>
+      <span class="token keyword">private</span> <span class="token keyword">int</span> n<span class="token punctuation">;</span>
+      <span class="token comment" spellcheck="true">//线段树</span>
+      <span class="token keyword">public</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> st<span class="token punctuation">;</span>
+
+      <span class="token keyword">public</span> <span class="token function">RMQ</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token keyword">this</span><span class="token punctuation">.</span>n <span class="token operator">=</span> n<span class="token punctuation">;</span>
+          st <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span>n <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+          <span class="token comment" spellcheck="true">//初始化为最大值</span>
+          <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> st<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+              st<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> INF<span class="token punctuation">;</span>
+          <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+      <span class="token comment" spellcheck="true">/**
+      * 把第k(0-index)的值更新为a
+      * @param k 下标
+      * @param a 新值
+      */</span>
+      <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">update</span><span class="token punctuation">(</span><span class="token keyword">int</span> k<span class="token punctuation">,</span> <span class="token keyword">int</span> a<span class="token punctuation">)</span><span class="token punctuation">{</span>
+          <span class="token comment" spellcheck="true">//定位到下标为k的元素在线段树中的下标</span>
+          k <span class="token operator">=</span> k <span class="token operator">+</span> <span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token comment" spellcheck="true">//更新</span>
+          st<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">=</span> a<span class="token punctuation">;</span>
+          <span class="token comment" spellcheck="true">//向上更新维护线段树</span>
+          <span class="token keyword">while</span> <span class="token punctuation">(</span>k <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+              k <span class="token operator">=</span> <span class="token punctuation">(</span>k <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+              st<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span>st<span class="token punctuation">[</span>k <span class="token operator">*</span> <span class="token number">2</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> st<span class="token punctuation">[</span>k <span class="token operator">*</span> <span class="token number">2</span> <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+      <span class="token comment" spellcheck="true">/**
+      * 求[a,b)区间最小值
+      * @param a
+      * @param b
+      * @param k 节点编号
+      * @param l k所对应的区间左边界
+      * @param r k所对应的区间右边界
+      * @return [a,b)区间最小值
+      */</span>
+      <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">query</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">,</span> <span class="token keyword">int</span> l<span class="token punctuation">,</span> <span class="token keyword">int</span> r<span class="token punctuation">)</span><span class="token punctuation">{</span>
+          <span class="token comment" spellcheck="true">//如果[l,r)和[a,b)完全不相交则返回一个不影响结果的值</span>
+          <span class="token keyword">if</span> <span class="token punctuation">(</span>r <span class="token operator">&lt;=</span> a <span class="token operator">||</span> b <span class="token operator">&lt;=</span> l<span class="token punctuation">)</span><span class="token punctuation">{</span>
+              <span class="token keyword">return</span> INF<span class="token punctuation">;</span>
+          <span class="token punctuation">}</span>
+          <span class="token comment" spellcheck="true">//如果[a,b)完全包含[l,r)则直接返回此最小值</span>
+          <span class="token keyword">if</span> <span class="token punctuation">(</span>a <span class="token operator">&lt;=</span> l <span class="token operator">&amp;&amp;</span> b <span class="token operator">>=</span> r<span class="token punctuation">)</span><span class="token punctuation">{</span>
+              <span class="token keyword">return</span> st<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>    <span class="token comment" spellcheck="true">//如果未完全包含需要递归查询</span>
+              <span class="token keyword">int</span> vl <span class="token operator">=</span> <span class="token function">query</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> k <span class="token operator">*</span> <span class="token number">2</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> l<span class="token punctuation">,</span> <span class="token punctuation">(</span>l <span class="token operator">+</span> r<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+              <span class="token keyword">int</span> vr <span class="token operator">=</span> <span class="token function">query</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> k <span class="token operator">*</span> <span class="token number">2</span> <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>l <span class="token operator">+</span> r<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">,</span> r<span class="token punctuation">)</span><span class="token punctuation">;</span>
+              <span class="token comment" spellcheck="true">//返回左右子树的最小值</span>
+              <span class="token keyword">return</span> Math<span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span>vl<span class="token punctuation">,</span> vr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token comment" spellcheck="true">//测试</span>
+          RMQ rmq <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">RMQ</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          rmq<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          rmq<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          rmq<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          rmq<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          rmq<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          rmq<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          rmq<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          rmq<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>Arrays<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span>rmq<span class="token punctuation">.</span>st<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>rmq<span class="token punctuation">.</span><span class="token function">query</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span></code></pre>
 </li>
-<li><p>在Docker本地配置文件”/etc/sysconfig/docker”中配置本机Docker镜像加速器。</p>
-<p> <img src="/images/Docker/config.png" alt=""></p>
-</li>
-<li><p>重新启动Docker服务。</p>
-<p> <img src="/images/Docker/restart.png" alt=""></p>
-</li>
-<li><p>验证加速器配置是否生效，出现–registry-mirror参数说明配置成功。</p>
-<p> <img src="/images/Docker/yanzheng.png" alt=""></p>
-</li>
-</ol>
-<h3 id="Docker搜索镜像出错"><a href="#Docker搜索镜像出错" class="headerlink" title="Docker搜索镜像出错"></a>Docker搜索镜像出错</h3><pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@curry 桌面<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># docker search tomcat</span>
-Error response from daemon: Get https://index.docker.io/v1/search?q<span class="token operator">=</span>tomcat: dial tcp 52.44.106.10:443: connection refused</code></pre>
-<p>解决方法：</p>
-<blockquote>
-<p>修改/etc/sysconfig/docker</p>
-</blockquote>
-<blockquote>
-<p><code>other_args=&quot;--registry-mirror=https://********.mirror.aliyuncs.com--exec-driver=lxc --selinux-enabled&quot;</code></p>
-</blockquote>
-<h3 id="Centos内核版本过低导致Docker无法运行"><a href="#Centos内核版本过低导致Docker无法运行" class="headerlink" title="Centos内核版本过低导致Docker无法运行"></a>Centos内核版本过低导致Docker无法运行</h3><pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@curry 桌面<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># docker run -it d97a52facc3f</span>
-FATAL: kernel too 
-<span class="token punctuation">[</span>root@curry 桌面<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># uname -a</span>
-Linux curry.abc 2.6.32-754.23.1.el6.x86_64 <span class="token comment" spellcheck="true">#1 SMP Thu Sep 26 12:05:41 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux</span></code></pre>
-<p>原因：Docker要求的Centos内核版本至少为3.8.0，而我的系统内核是2.6.32，所以需要升级内核。</p>
+</ul>
 
             </div>
             <hr/>
@@ -513,7 +515,7 @@ Linux curry.abc 2.6.32-754.23.1.el6.x86_64 <span class="token comment" spellchec
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://stacksg.club/2019/10/05/docker/index/">https://stacksg.club/2019/10/05/docker/index/</a>
+                    <a href="https://stacksg.club/2020/06/06/DataStructures/%E7%BA%BF%E6%AE%B5%E6%A0%91/">https://stacksg.club/2020/06/06/DataStructures/%E7%BA%BF%E6%AE%B5%E6%A0%91/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -551,12 +553,12 @@ Linux curry.abc 2.6.32-754.23.1.el6.x86_64 <span class="token comment" spellchec
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Linux/">
-                                    <span class="chip bg-color">Linux</span>
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                                    <span class="chip bg-color">数据结构</span>
                                 </a>
                             
-                                <a href="/tags/Docker/">
-                                    <span class="chip bg-color">Docker</span>
+                                <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/">
+                                    <span class="chip bg-color">线段树</span>
                                 </a>
                             
                         </div>
@@ -595,7 +597,7 @@ Linux curry.abc 2.6.32-754.23.1.el6.x86_64 <span class="token comment" spellchec
         repo: 'blog-comments',
         owner: 'stackSg',
         admin: "stackSg",
-        id: '2019-10-05T04-25-30',
+        id: '2020-06-06T10-45-28',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -616,96 +618,36 @@ Linux curry.abc 2.6.32-754.23.1.el6.x86_64 <span class="token comment" spellchec
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/10/23/createsite/ecs%E6%90%AD%E5%BB%BA%E7%BD%91%E7%AB%99/">
+                <a href="/2020/06/06/DataStructures/%E7%BA%BF%E6%AE%B5%E6%A0%91/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="使用阿里云服务器搭建个人网站">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="线段树">
                         
-                        <span class="card-title">使用阿里云服务器搭建个人网站</span>
+                        <span class="card-title">线段树</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            使用阿里云服务器搭建个人网站
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-10-23
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Linux/" class="post-category">
-                                    Linux
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Linux/">
-                        <span class="chip bg-color">Linux</span>
-                    </a>
-                    
-                    <a href="/tags/aliyun/">
-                        <span class="chip bg-color">aliyun</span>
-                    </a>
-                    
-                    <a href="/tags/JDK/">
-                        <span class="chip bg-color">JDK</span>
-                    </a>
-                    
-                    <a href="/tags/Tomcat/">
-                        <span class="chip bg-color">Tomcat</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/10/05/docker/index/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Docker学习笔记">
-                        
-                        <span class="card-title">Docker学习笔记</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            Docker学习笔记
+                            基于线段树(Segment Tree)的Range Minimum Query(RMQ)
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-10-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-06
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Docker/" class="post-category">
-                                    Docker
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
+                                    数据结构
                                 </a>
                             
                             
@@ -716,12 +658,69 @@ Linux curry.abc 2.6.32-754.23.1.el6.x86_64 <span class="token comment" spellchec
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Linux/">
-                        <span class="chip bg-color">Linux</span>
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                        <span class="chip bg-color">数据结构</span>
                     </a>
                     
-                    <a href="/tags/Docker/">
-                        <span class="chip bg-color">Docker</span>
+                    <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/">
+                        <span class="chip bg-color">线段树</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/05/15/java/Spring-Boot%E7%83%AD%E9%83%A8%E7%BD%B2/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Spring Boot热部署">
+                        
+                        <span class="card-title">Spring Boot热部署</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            配置Spring Boot热部署
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-15
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/Spring-Boot/">
+                        <span class="chip bg-color">Spring Boot</span>
+                    </a>
+                    
+                    <a href="/tags/devtools/">
+                        <span class="chip bg-color">devtools</span>
                     </a>
                     
                 </div>
