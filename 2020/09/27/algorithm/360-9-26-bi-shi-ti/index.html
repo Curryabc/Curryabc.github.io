@@ -4,14 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="hexo激活Gitalk评论板块, IT,程序员,技术博客">
-    <meta name="description" content="GitalkGitalk 是一个基于 GitHub Issue 和 Preact 开发的评论插件。
-特性
-
-使用 GitHub 登录
-支持多语言 [en, zh-CN, zh-TW, es-ES, fr, ru]
-支持个人或组织
-无干扰模式">
+    <meta name="keywords" content="360-9.26笔试题, IT,程序员,技术博客">
+    <meta name="description" content="
+搬家公司正在帮助一家人将小物体装箱。一个箱子的大小是有限的，公司可以把一个箱子分成最多k个独立的隔间，将一个箱子分成r个隔间需要r-1个隔板（这一个箱子没有放隔板也拥有一个本身的隔间）。而这一次搬家工作只携带了b个隔板。在每一个隔间中，由">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>hexo激活Gitalk评论板块 | stacksg</title>
+    <title>360-9.26笔试题 | stacksg</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -238,13 +233,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        hexo激活Gitalk评论板块
+                        360-9.26笔试题
                     </div>
                 </div>
             </div>
@@ -356,12 +351,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Blog/">
-                                <span class="chip bg-color">Blog</span>
+                            <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">算法</span>
                             </a>
                         
-                            <a href="/tags/hexo/">
-                                <span class="chip bg-color">hexo</span>
+                            <a href="/tags/%E9%9D%A2%E8%AF%95/">
+                                <span class="chip bg-color">面试</span>
                             </a>
                         
                     </div>
@@ -372,8 +367,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/hexo/" class="post-category">
-                                hexo
+                            <a href="/categories/%E6%B1%82%E8%81%8C/" class="post-category">
+                                求职
                             </a>
                         
                     </div>
@@ -384,7 +379,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-01-02
+                    2020-09-27
                 </div>
                 
                 
@@ -402,41 +397,133 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="Gitalk"><a href="#Gitalk" class="headerlink" title="Gitalk"></a>Gitalk</h3><p>Gitalk 是一个基于 GitHub Issue 和 Preact 开发的评论插件。</p>
-<p>特性</p>
+                <ol>
+<li>搬家公司正在帮助一家人将小物体装箱。一个箱子的大小是有限的，公司可以把一个箱子分成最多k个独立的隔间，将一个箱子分成r个隔间需要r-1个隔板（这一个箱子没有放隔板也拥有一个本身的隔间）。而这一次搬家工作只携带了b个隔板。在每一个隔间中，由于物件放多了容易损坏，最多只能放v个物体。现在这家人有a个物体，请问最少需要多少个箱子，才能将所有的物体装箱？</li>
+</ol>
 <ul>
-<li>使用 GitHub 登录</li>
-<li>支持多语言 [en, zh-CN, zh-TW, es-ES, fr, ru]</li>
-<li>支持个人或组织</li>
-<li>无干扰模式（设置 distractionFreeMode 为 true 开启）</li>
-<li>快捷键提交评论 （cmd|ctrl + enter）</li>
+<li><p>题目中要求多行输入，自己对于多行输入没有处理好</p>
+<pre class=" language-java"><code class="language-java">Scanner input <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Scanner</span><span class="token punctuation">(</span>System<span class="token punctuation">.</span>in<span class="token punctuation">)</span><span class="token punctuation">;</span>
+StringBuilder res <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">while</span> <span class="token punctuation">(</span>input<span class="token punctuation">.</span><span class="token function">hasNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">//a个物体</span>
+  <span class="token keyword">int</span> a <span class="token operator">=</span> input<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">//隔板</span>
+  <span class="token keyword">int</span> b <span class="token operator">=</span> input<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">//可分成k个间隔</span>
+  <span class="token keyword">int</span> k <span class="token operator">=</span> input<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">//每一个隔间中， 最多只能放v个物体</span>
+  <span class="token keyword">int</span> v <span class="token operator">=</span> input<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">//统计箱子个数</span>
+  <span class="token keyword">int</span> ans <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">//当前箱子隔间数量</span>
+  <span class="token keyword">int</span> c <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">//循环直到物品装完</span>
+  <span class="token keyword">while</span> <span class="token punctuation">(</span>a <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token comment" spellcheck="true">//如果还有隔板  使用隔板</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>b <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+          <span class="token comment" spellcheck="true">//如果当前箱子隔板数量小于上限 继续使用隔板</span>
+          <span class="token keyword">if</span> <span class="token punctuation">(</span>c <span class="token operator">&lt;</span> k<span class="token punctuation">)</span><span class="token punctuation">{</span>
+              <span class="token comment" spellcheck="true">//使用一个隔板，装入v个物品</span>
+              a <span class="token operator">-=</span> v<span class="token punctuation">;</span>
+              <span class="token comment" spellcheck="true">//隔板少一</span>
+              b<span class="token operator">--</span><span class="token punctuation">;</span>
+              <span class="token comment" spellcheck="true">//当前箱子隔板数量+1</span>
+              c<span class="token operator">++</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span>
+          <span class="token comment" spellcheck="true">//如果当前箱子隔板数量到达上限，使用下一个箱子</span>
+          <span class="token keyword">if</span> <span class="token punctuation">(</span>c <span class="token operator">==</span> k<span class="token punctuation">)</span><span class="token punctuation">{</span>
+              <span class="token comment" spellcheck="true">//隔板用完后还可以装入最后一格货物</span>
+              a <span class="token operator">-=</span> v<span class="token punctuation">;</span>
+              <span class="token comment" spellcheck="true">//隔板数量累计初始化</span>
+              c <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+              <span class="token comment" spellcheck="true">//箱子数量+1</span>
+              ans<span class="token operator">++</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span>
+
+      <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>  <span class="token comment" spellcheck="true">//如果没有隔板 每个箱子只能放v个物品</span>
+          a <span class="token operator">-=</span> v<span class="token punctuation">;</span>
+          ans<span class="token operator">++</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>ans<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+</li>
 </ul>
-<p>了解Gitalk：<a href="https://github.com/gitalk/gitalk/blob/master/readme-cn.md" target="_blank" rel="noopener">https://github.com/gitalk/gitalk/blob/master/readme-cn.md</a></p>
-<h3 id="创建-blog-comments-仓库"><a href="#创建-blog-comments-仓库" class="headerlink" title="创建 blog-comments 仓库"></a>创建 blog-comments 仓库</h3><p>这个仓库主要用于存储评论，因为 Gitalk 是基于 lssue 和 Preact 开发的评论插件，因此最好每篇文章对应一个 Issue。</p>
-<p><img src="/images/hexo/newrep.png" alt=""></p>
-<h3 id="使用-GitHub-OAuth-第三方验证登录"><a href="#使用-GitHub-OAuth-第三方验证登录" class="headerlink" title="使用 GitHub OAuth 第三方验证登录"></a>使用 GitHub OAuth 第三方验证登录</h3><ol>
-<li>打开 Setting &gt; Developer setting &gt; OAuth applications</li>
-<li>点击 Register a new application</li>
-<li>填入基本的app信息</li>
-<li>创建成功</li>
+<ol start="2">
+<li><p>一只乌龟来到了图论森林游玩。图论森林可以被抽象地看作有n个点m条带权无向边的简单图，没有自环没有重边。乌龟需要从s点到达t点。森林里居住了很多兔子，乌龟在经过一条边时会因为爬得太慢而受到边上兔子们的嘲笑，一条边上兔子数量为这条边的边权。<br>乌龟想找到一条从起点到终点的路径，路径上有一条边的兔子是这条路径所有边中最多的，它想让这个值尽可能少，请问最少是多少。<br>用例以n（节点个数）、m（边数）、s、t，然后m行u、v、w（权的大小）给出，比如：<br>5 6 1 5<br>1 5 100<br>1 2 10<br>2 5 5<br>1 3 3<br>3 4 2<br>4 5 1<br>选择从1-&gt;3-&gt;4-&gt;5的路径，经过3条w分别为3、2、1的边，因此答案为3。如果选择1-&gt;5或1-&gt;2-&gt;5则最大边权分别为100和10，都比3大。</p>
+<pre class=" language-java"><code class="language-java"> Scanner input <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Scanner</span><span class="token punctuation">(</span>System<span class="token punctuation">.</span>in<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token keyword">int</span> n <span class="token operator">=</span> input<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token keyword">int</span> m <span class="token operator">=</span> input<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token keyword">int</span> s <span class="token operator">=</span> input<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token keyword">int</span> t <span class="token operator">=</span> input<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> graph <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+ <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> m<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+     <span class="token keyword">int</span> x <span class="token operator">=</span> input<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token keyword">int</span> y <span class="token operator">=</span> input<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token keyword">int</span> cost <span class="token operator">=</span> input<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     graph<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span> <span class="token operator">=</span> cost<span class="token punctuation">;</span>
+     graph<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">=</span> cost<span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+
+ <span class="token comment" spellcheck="true">//"父亲指针"</span>
+ <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> fa <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+ fa<span class="token punctuation">[</span>s<span class="token punctuation">]</span> <span class="token operator">=</span> s<span class="token punctuation">;</span>
+ <span class="token comment" spellcheck="true">//记录是否已经找出最短路径</span>
+ <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> f <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+ <span class="token comment" spellcheck="true">//d[i]代表s到其他点的最短距离 设d[s]=0,其他为inf(表示不可达)</span>
+ <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> d <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+ d<span class="token punctuation">[</span>s<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+ <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> d<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+     <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> s<span class="token punctuation">)</span> <span class="token keyword">continue</span><span class="token punctuation">;</span>
+     d<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> Integer<span class="token punctuation">.</span>MAX_VALUE<span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+
+ <span class="token comment" spellcheck="true">//记录已经找到最短路径的点</span>
+ Set<span class="token operator">&lt;</span>Integer<span class="token operator">></span> set <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashSet</span><span class="token operator">&lt;</span>Integer<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token comment" spellcheck="true">//循环n次</span>
+ <span class="token keyword">while</span> <span class="token punctuation">(</span>set<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> n<span class="token punctuation">)</span><span class="token punctuation">{</span>
+     <span class="token comment" spellcheck="true">//在所有未标号节点中，选出d值最小的节点x</span>
+     <span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+     <span class="token keyword">int</span> min <span class="token operator">=</span> Integer<span class="token punctuation">.</span>MAX_VALUE<span class="token punctuation">;</span>
+     <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> d<span class="token punctuation">.</span>length<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+         <span class="token keyword">if</span> <span class="token punctuation">(</span>f<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> d<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&lt;=</span> min<span class="token punctuation">)</span><span class="token punctuation">{</span>
+             x <span class="token operator">=</span> j<span class="token punctuation">;</span>
+             min <span class="token operator">=</span> d<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+         <span class="token punctuation">}</span>
+     <span class="token punctuation">}</span>
+     <span class="token comment" spellcheck="true">//给节点x标记</span>
+     f<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+     set<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> graph<span class="token punctuation">.</span>length<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+         <span class="token keyword">if</span> <span class="token punctuation">(</span>graph<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> d<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">></span> d<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">+</span> graph<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+             d<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> d<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">+</span> graph<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+             fa<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> x<span class="token punctuation">;</span>
+         <span class="token punctuation">}</span>
+     <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span>
+
+ <span class="token comment" spellcheck="true">//根据fa[i]记录的父节点，向上还原最短路径，并找出最短路径中最大权值</span>
+ <span class="token comment" spellcheck="true">//从终点开始</span>
+ <span class="token keyword">int</span> i <span class="token operator">=</span> t<span class="token punctuation">;</span>
+ <span class="token keyword">int</span> ans <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+ <span class="token comment" spellcheck="true">//直到到达起点</span>
+ <span class="token keyword">while</span> <span class="token punctuation">(</span>i <span class="token operator">!=</span> s<span class="token punctuation">)</span><span class="token punctuation">{</span>
+     <span class="token comment" spellcheck="true">//上一个点</span>
+     <span class="token keyword">int</span> j <span class="token operator">=</span> fa<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+     <span class="token comment" spellcheck="true">//当前边e(i, j)的权值是否最大</span>
+     <span class="token keyword">if</span> <span class="token punctuation">(</span>ans <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">||</span> graph<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">></span> ans<span class="token punctuation">)</span><span class="token punctuation">{</span>
+         ans <span class="token operator">=</span> graph<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+     i <span class="token operator">=</span> j<span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+
+ System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>ans<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+</li>
 </ol>
-<p><img src="/images/hexo/OAuthApp.png" alt=""></p>
-<ol start="5">
-<li>如果找不到，可以戳这个链接：<a href="https://github.com/settings/applications/new" target="_blank" rel="noopener">https://github.com/settings/applications/new</a></li>
-<li>创建完成会生成Client ID 和 Client Secret，这两个id需要到填写到配置文件里。<br><img src="/images/hexo/id.png" alt=""></li>
-</ol>
-<h3 id="配置主题-config-yml"><a href="#配置主题-config-yml" class="headerlink" title="配置主题_config.yml"></a>配置主题_config.yml</h3><pre class=" language-yml"><code class="language-yml">gitalk: 
-  enable: true #用来做启用判断可以不用
-  clientID: 'your clientID' #OAuth Application
-  clientSecret: 'your clientSecret' #OAuth Application
-  repo: blog-comments #刚创建用于gitalk Issue的仓库名称
-  owner: stackSg  #github用户名
-  admin: stackSg  #github用户名
-  distractionFreeMode: true # 类似于Facebook的阴影效果
-  labels: ['Gitalk']  # 用于生成Issue的标签
-  id:  # 页面唯一标示
-  language: 'zh-CN' #设置语言</code></pre>
-<p>这里的labels和id对应仓库的Issues如下：<br><img src="/images/hexo/issues.png" alt=""></p>
 
             </div>
             <hr/>
@@ -463,7 +550,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://stacksg.club/2020/01/02/blog/hexo-zeng-jia-gitalk-ping-lun-ban-kuai/">https://stacksg.club/2020/01/02/blog/hexo-zeng-jia-gitalk-ping-lun-ban-kuai/</a>
+                    <a href="https://stacksg.club/2020/09/27/algorithm/360-9-26-bi-shi-ti/">https://stacksg.club/2020/09/27/algorithm/360-9-26-bi-shi-ti/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -501,12 +588,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Blog/">
-                                    <span class="chip bg-color">Blog</span>
+                                <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">算法</span>
                                 </a>
                             
-                                <a href="/tags/hexo/">
-                                    <span class="chip bg-color">hexo</span>
+                                <a href="/tags/%E9%9D%A2%E8%AF%95/">
+                                    <span class="chip bg-color">面试</span>
                                 </a>
                             
                         </div>
@@ -545,7 +632,7 @@
         repo: 'blog-comments',
         owner: 'stackSg',
         admin: "stackSg",
-        id: '2020-01-02T16-30-54',
+        id: '2020-09-27T09-10-40',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -566,54 +653,52 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/01/14/createsite/github-pages-cdn/">
+                <a href="/2020/09/27/algorithm/360-9-26-bi-shi-ti/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="GitHub Pages+CDN">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="360-9.26笔试题">
                         
-                        <span class="card-title">GitHub Pages+CDN</span>
+                        <span class="card-title">360-9.26笔试题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            基于GitHub Pages使用CDN加速
+                            360笔试
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-14
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-27
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/GitHub-Pages/" class="post-category">
-                                    GitHub Pages
+                            <a href="/categories/%E6%B1%82%E8%81%8C/" class="post-category">
+                                    求职
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/aliyun/">
-                        <span class="chip bg-color">aliyun</span>
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
                     </a>
                     
-                    <a href="/tags/CDN/">
-                        <span class="chip bg-color">CDN</span>
-                    </a>
-                    
-                    <a href="/tags/GitHub-Pages/">
-                        <span class="chip bg-color">GitHub Pages</span>
+                    <a href="/tags/%E9%9D%A2%E8%AF%95/">
+                        <span class="chip bg-color">面试</span>
                     </a>
                     
                 </div>
@@ -627,31 +712,31 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/01/01/other/2019-zong-jie/">
+                <a href="/2020/09/07/algorithm/jian-zhi-offer/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="2019总结">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="剑指Offer">
                         
-                        <span class="card-title">2019总结</span>
+                        <span class="card-title">剑指Offer</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            今天是2020年第一天
+                            剑指Offer刷题总结
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-07
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/other/" class="post-category">
-                                    other
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
                                 </a>
                             
                             
@@ -661,8 +746,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%9D%82%E8%B0%88/">
-                        <span class="chip bg-color">杂谈</span>
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%88%B7%E9%A2%98/">
+                        <span class="chip bg-color">刷题</span>
                     </a>
                     
                 </div>
