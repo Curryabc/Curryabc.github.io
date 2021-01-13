@@ -4,8 +4,21 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Nacos, IT,程序员,技术博客">
-    <meta name="description" content="Nacos | stackSg">
+    <meta name="keywords" content="LeetCode刷题, IT,程序员,技术博客">
+    <meta name="description" content="栈 队列
+20. 有效的括号
+
+155. 最小栈
+
+AcWing 828. 模拟栈
+
+AcWing 829. 模拟队列
+
+225. 用队列实现栈
+
+232. 用栈实现队列
+
+一个栈依次压入1、2、3、4、5，那么从栈顶到栈底分别为5、4、3">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +26,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Nacos | stackSg</title>
+    <title>LeetCode刷题 | stackSg</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -232,13 +245,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Nacos
+                        LeetCode刷题
                     </div>
                 </div>
             </div>
@@ -348,12 +361,29 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">算法</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%88%B7%E9%A2%98/">
+                                <span class="chip bg-color">刷题</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                算法
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -361,9 +391,14 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-09-29
+                    2020-11-30
                 </div>
                 
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2021-01-07
+                </div>
                 
 
                 
@@ -379,7 +414,111 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h3 id="栈-队列"><a href="#栈-队列" class="headerlink" title="栈 队列"></a>栈 队列</h3><ul>
+<li><p><a href="https://leetcode-cn.com/problems/valid-parentheses/" target="_blank" rel="noopener">20. 有效的括号</a></p>
+</li>
+<li><p><a href="https://leetcode-cn.com/problems/min-stack/" target="_blank" rel="noopener">155. 最小栈</a></p>
+</li>
+<li><p><a href="https://www.acwing.com/activity/content/problem/content/865/1/" target="_blank" rel="noopener">AcWing 828. 模拟栈</a></p>
+</li>
+<li><p><a href="https://www.acwing.com/activity/content/problem/content/866/1/" target="_blank" rel="noopener">AcWing 829. 模拟队列</a></p>
+</li>
+<li><p><a href="https://leetcode-cn.com/problems/implement-stack-using-queues/" target="_blank" rel="noopener">225. 用队列实现栈</a></p>
+</li>
+<li><p><a href="https://leetcode-cn.com/problems/implement-queue-using-stacks/" target="_blank" rel="noopener">232. 用栈实现队列</a></p>
+</li>
+<li><p>一个栈依次压入1、2、3、4、5，那么从栈顶到栈底分别为5、4、3、2、1。将这个栈转置后，从栈顶到栈底为1、2、3、4、5，也就是实现栈中元素的逆序，但是只能用递归函数来实现，不能用其他数据结构。</p>
+<pre class=" language-java"><code class="language-java">  <span class="token keyword">public</span>  <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">reverse</span><span class="token punctuation">(</span>Stack<span class="token operator">&lt;</span>Integer<span class="token operator">></span> stack<span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>stack<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>    <span class="token keyword">return</span><span class="token punctuation">;</span>
+      <span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token function">getAndRemoveLastElement</span><span class="token punctuation">(</span>stack<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">reverse</span><span class="token punctuation">(</span>stack<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">getAndRemoveLastElement</span><span class="token punctuation">(</span>Stack<span class="token operator">&lt;</span>Integer<span class="token operator">></span> stack<span class="token punctuation">)</span><span class="token punctuation">{</span>
+      Integer i <span class="token operator">=</span> stack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>stack<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+          <span class="token keyword">return</span> i<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token punctuation">{</span>
+          <span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token function">getAndRemoveLastElement</span><span class="token punctuation">(</span>stack<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword">return</span> n<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span></code></pre>
+</li>
+<li><p><a href="https://leetcode-cn.com/problems/hanota-lcci/" target="_blank" rel="noopener">面试题 08.06. 汉诺塔问题</a></p>
+</li>
+<li><p>【题目五】<br>  汉诺塔问题比较经典，这里修改一下游戏规则:不能从最左侧的塔直接移动到最右侧;<br>  不能从最右侧直接移动到最左侧;<br>  最左到最右的互相移动必须经过中间;<br>  求当塔有N层的时候，打印最优移动过程和最优移动总步数。（递归和非递归解法）</p>
+</li>
+<li><p><a href="https://leetcode-cn.com/problems/hua-dong-chuang-kou-de-zui-da-zhi-lcof/" target="_blank" rel="noopener">剑指 Offer 59 - I. 滑动窗口的最大值</a>（单调队列）</p>
+</li>
+<li><p><a href="https://leetcode-cn.com/problems/sliding-window-maximum/" target="_blank" rel="noopener">239. 滑动窗口最大值</a>（单调队列）</p>
+</li>
+<li><p><a href="https://leetcode-cn.com/problems/maximum-binary-tree/" target="_blank" rel="noopener">654. 最大二叉树</a>(单调栈、堆)</p>
+</li>
+<li><p>【题目十一】<br>  给定一个整型矩阵map，其中的值只有O和1两种，求其中全是1的所有矩形区域中，最大的矩形区域为1的数量。<br>  例如∶<br>  1 1 1 0<br>  其中，最大的矩形区域有3个1，所以返回3。再如:<br>  1 0 1 1<br>  1 1 1 1<br>  1 1 1 0<br>  其中，最大的矩形区域有6个1，所以返回6。</p>
+<pre class=" language-java"><code class="language-java"></code></pre>
+</li>
+<li><p>【题目十二】<br>  给定数组arr和整数num，返回一共有多少个子数组满足如下情况Max{arr[i..j]}-Min{arr[i..j]}&lt;= num<br>  其中, Max{arr[i..j]}表示子数组arr[i..j]中的最大值;Min{arr[i..j]}麦示子数组arr[i..j]中的最小值<br>  【要求】<br>  如果数组长度为N，请实现时间复杂度为o(N)的解法。</p>
+<pre class=" language-java"><code class="language-java"></code></pre>
+</li>
+</ul>
+<h3 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h3><ul>
+<li><a href="https://leetcode-cn.com/problems/top-k-frequent-words/" target="_blank" rel="noopener">692. 前K个高频单词</a>(Top K)</li>
+<li>扩展：设计并实现TopKRecord结构。可以不断地向其中加入字符串。并且可以随时打印加入次数最多前k个字符串。<br>【扩展问题的解题点】<br>1，建立hashmap1，收集各种字符串的出现频率<br>2，建立maxheap，维持当前的TOP K<br>3，建立hashmap2，维持出现的字符串在堆上的位置<br>4，完善hashmap1、hashmap2和maxheap之间的配合问题</li>
+</ul>
+<h3 id="hash"><a href="#hash" class="headerlink" title="hash"></a>hash</h3><ul>
+<li><a href="https://leetcode-cn.com/problems/two-sum/" target="_blank" rel="noopener">1. 两数之和</a></li>
+</ul>
+<h3 id="模拟"><a href="#模拟" class="headerlink" title="模拟"></a>模拟</h3><ul>
+<li><a href="https://leetcode-cn.com/problems/add-two-numbers/" target="_blank" rel="noopener">2. 两数相加</a></li>
+</ul>
+<h3 id="滑动窗口"><a href="#滑动窗口" class="headerlink" title="滑动窗口"></a>滑动窗口</h3><ul>
+<li><a href="https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/" target="_blank" rel="noopener">3. 无重复字符的最长子串</a></li>
+</ul>
+<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><h4 id="回文串"><a href="#回文串" class="headerlink" title="回文串"></a>回文串</h4><p><code>manacher算法</code></p>
+<ul>
+<li><a href="https://leetcode-cn.com/problems/longest-palindromic-substring/" target="_blank" rel="noopener">5. 最长回文子串</a></li>
+<li><a href="https://leetcode-cn.com/problems/palindrome-number/" target="_blank" rel="noopener">9. 回文数</a></li>
+</ul>
+<h4 id="KMP"><a href="#KMP" class="headerlink" title="KMP"></a>KMP</h4><ul>
+<li><a href="https://leetcode-cn.com/problems/implement-strstr/" target="_blank" rel="noopener">28. 实现 strStr()</a></li>
+</ul>
+<h3 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h3><ul>
+<li><a href="https://leetcode-cn.com/problems/unique-paths/" target="_blank" rel="noopener">62. 不同路径</a></li>
+<li><a href="https://leetcode-cn.com/problems/unique-paths-ii/" target="_blank" rel="noopener">63. 不同路径 II</a></li>
+<li><a href="https://leetcode-cn.com/problems/minimum-path-sum/" target="_blank" rel="noopener">64. 最小路径和</a></li>
+<li><a href="https://leetcode-cn.com/problems/house-robber/" target="_blank" rel="noopener">198. 打家劫舍</a></li>
+<li><a href="https://leetcode-cn.com/problems/house-robber-ii/" target="_blank" rel="noopener">213. 打家劫舍 II</a></li>
+<li><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/" target="_blank" rel="noopener">121. 买卖股票的最佳时机</a></li>
+<li><a href="https://leetcode-cn.com/problems/range-sum-query-immutable/" target="_blank" rel="noopener">303. 区域和检索 - 数组不可变</a></li>
+<li><a href="https://leetcode-cn.com/problems/arithmetic-slices/" target="_blank" rel="noopener">413. 等差数列划分</a></li>
+<li><a href="https://leetcode-cn.com/problems/integer-break/" target="_blank" rel="noopener">343. 整数拆分</a></li>
+<li><a href="https://leetcode-cn.com/problems/perfect-squares/" target="_blank" rel="noopener">279. 完全平方数</a></li>
+<li><a href="https://leetcode-cn.com/problems/decode-ways/" target="_blank" rel="noopener">91. 解码方法</a></li>
+<li><a href="https://leetcode-cn.com/problems/longest-increasing-subquence/" target="_blank" rel="noopener">300. 最长上升子序列</a></li>
+<li><a href="https://leetcode-cn.com/problems/maximum-length-of-pair-chain/" target="_blank" rel="noopener">646. 最长数对链</a></li>
+<li><a href="https://leetcode-cn.com/problems/wiggle-subsequence/" target="_blank" rel="noopener">376. 摆动序列</a>*</li>
+<li><a href="https://leetcode-cn.com/problems/longest-common-subsequence/" target="_blank" rel="noopener">1143. 最长公共子序列</a></li>
+<li><a href="https://leetcode-cn.com/problems/partition-equal-subset-sum/" target="_blank" rel="noopener">416. 分割等和子集</a></li>
+<li><a href="https://leetcode-cn.com/problems/target-sum/" target="_blank" rel="noopener">494. 目标和</a></li>
+</ul>
+<h3 id="双指针"><a href="#双指针" class="headerlink" title="双指针"></a>双指针</h3><ul>
+<li><a href="https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/" target="_blank" rel="noopener">167. 两数之和 II - 输入有序数组</a></li>
+<li><a href="https://leetcode-cn.com/problems/sum-of-square-numbers/" target="_blank" rel="noopener">633. 平方数之和</a></li>
+<li><a href="https://leetcode-cn.com/problems/reverse-vowels-of-a-string/" target="_blank" rel="noopener">345. 反转字符串中的元音字母</a></li>
+<li><a href="https://leetcode-cn.com/problems/valid-palindrome-ii/" target="_blank" rel="noopener">680. 验证回文字符串 Ⅱ</a></li>
+<li><a href="https://leetcode-cn.com/problems/merge-sorted-array/" target="_blank" rel="noopener">88. 合并两个有序数组</a></li>
+<li><a href="https://leetcode-cn.com/problems/longest-word-in-dictionary-through-deleting/" target="_blank" rel="noopener">524. 通过删除字母匹配到字典里最长单词</a></li>
+<li><a href="https://leetcode-cn.com/problems/linked-list-cycle/description/" target="_blank" rel="noopener">141. 环形链表</a></li>
+</ul>
+<h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><ul>
+<li><a href="https://leetcode-cn.com/problems/kth-largest-element-in-an-array/" target="_blank" rel="noopener">215. 数组中的第K个最大元素</a></li>
+<li><a href="https://leetcode-cn.com/problems/top-k-frequent-elements/description/" target="_blank" rel="noopener">347. 前 K 个高频元素</a></li>
+<li><a href="https://leetcode-cn.com/problems/sort-characters-by-frequency/" target="_blank" rel="noopener">451. 根据字符出现频率排序</a></li>
+<li><a href="https://leetcode-cn.com/problems/sort-colors/" target="_blank" rel="noopener">75. 颜色分类</a></li>
+</ul>
+
             </div>
             <hr/>
 
@@ -405,7 +544,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://stacksg.club/2020/09/29/nacos/">https://stacksg.club/2020/09/29/nacos/</a>
+                    <a href="https://stacksg.club/2020/11/30/algorithm/leetcode-shua-ti/">https://stacksg.club/2020/11/30/algorithm/leetcode-shua-ti/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -442,7 +581,15 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">算法</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%88%B7%E9%A2%98/">
+                                    <span class="chip bg-color">刷题</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -479,7 +626,7 @@
         repo: 'blog-comments',
         owner: 'stackSg',
         admin: "stackSg",
-        id: '2020-09-29T20-24-20',
+        id: '2020-11-30T15-48-32',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -500,39 +647,49 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/09/29/nacos/">
+                <a href="/2021/01/03/other/2020-zong-jie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Nacos">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="2020总结">
                         
-                        <span class="card-title">Nacos</span>
+                        <span class="card-title">2020总结</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            2020年总结
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-29
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-03
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            L
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/other/" class="post-category">
+                                    other
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%9D%82%E8%B0%88/">
+                        <span class="chip bg-color">杂谈</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -543,31 +700,31 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/09/27/algorithm/360-9-26-bi-shi-ti/">
+                <a href="/2020/09/29/springboot/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="360-9.26笔试题">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="SpringBoot总结">
                         
-                        <span class="card-title">360-9.26笔试题</span>
+                        <span class="card-title">SpringBoot总结</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            360笔试
+                            SpringBoot总结
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-29
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%B1%82%E8%81%8C/" class="post-category">
-                                    求职
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
                                 </a>
                             
                             
@@ -577,12 +734,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
                     </a>
                     
-                    <a href="/tags/%E9%9D%A2%E8%AF%95/">
-                        <span class="chip bg-color">面试</span>
+                    <a href="/tags/Spring-Boot/">
+                        <span class="chip bg-color">Spring Boot</span>
                     </a>
                     
                 </div>
